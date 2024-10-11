@@ -6,7 +6,7 @@ This repository contains the group project for the Data Visualization course (CO
 
 ### Purpose
 
-The purpose of this project is to demonstrate our team's ability to develop an interactive data visualization that effectively communicates insights from health-related data. Our visualization aims to explore trends in life expectancy and population demographics, with a focus on Singapore.
+The purpose of this project is to demonstrate our team's ability to develop an interactive data visualization that effectively communicates insights from health-related data. Our visualization aims to explore trends in life expectancy and population demographics, with a focus on ASEAN countries.
 
 ### Audience
 
