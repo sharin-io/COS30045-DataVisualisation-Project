@@ -13,7 +13,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <!-- <script src="life_expectancy.js"></script> -->
-    <script src="script/.js"></script>
+    <script src="script/birth-rate.js"></script>
     <script src="script/.js"></script>
     <script src="script/.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -61,20 +61,20 @@
                 <section aria-label="Key metrics dashboard" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Life Expectancy</h2>
-                        <data class="text-3xl font-bold text-blue-600" id="avg-life-expectancy" value="75.2">75.2</data>
+                        <data class="text-3xl font-bold text-blue-600" id="avg-life-expectancy" value="00.0">00.0</data>
                         <p class="text-sm text-gray-600">Regional Average</p>
                     </article>
 
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Population Health</h2>
-                        <data class="text-3xl font-bold text-green-600" id="health-index" value="82.4">82.4</data>
+                        <data class="text-3xl font-bold text-green-600" id="health-index" value="00.0">00.0</data>
                         <p class="text-sm text-gray-600">Health Index</p>
                     </article>
 
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Demographics</h2>
-                        <data class="text-3xl font-bold text-purple-600" id="total-population" value="661">661M</data>
-                        <p class="text-sm text-gray-600">Total Population</p>
+                        <data class="text-3xl font-bold text-purple-600" id="birth-rate" value="000">000M</data>
+                        <p class="text-sm text-gray-600">Birth Rate</p>
                     </article>
                 </section>
             </div>
@@ -118,8 +118,8 @@
                     <fieldset class="p-4 bg-gray-50 rounded-lg">
                         <legend class="text-sm font-medium text-gray-700 mb-2">Time Period</legend>
                         <select class="w-full p-2 border rounded" id="time-filter" aria-label="Select time period">
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
                             <option value="2022">2022</option>
                         </select>
                     </fieldset>
@@ -180,31 +180,6 @@
             <p class="text-center text-gray-600">Shin Thant Thi Ri ~ Yadanar Theint</p>
         </div>
     </footer>
-
-    <script>
-        // Initialize D3.js visualizations
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize visualizations
-            function initializeCharts() {
-                const width = 800;
-                const height = 400;
-
-                // Sample temporal trend chart
-                const temporalSvg = d3.select('#temporal-chart')
-                    .append('svg')
-                    .attr('width', '100%')
-                    .attr('height', '100%')
-                    .attr('viewBox', `0 0 ${width} ${height}`)
-                    .attr('role', 'img')
-                    .attr('aria-label', 'Life expectancy trends over time');
-
-                // Add more visualization initializations
-            }
-
-            // Call initialization
-            initializeCharts();
-        });
-    </script>
 </body>
 
 </html>
