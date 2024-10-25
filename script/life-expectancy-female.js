@@ -95,7 +95,7 @@ function drawBars(order = 'asc') {
     .attr("height", d => y(d[0]) - y(d[1]))
     .attr("rx", 7) // Rounded corners
     .attr("ry", 7) // Rounded corners
-    .on("mouseover", function(event, d) {
+    .on("mouseover", function (event, d) {
       const rectIndex = d3.select(this.parentNode).datum().indexOf(d);
       tooltip.transition().duration(200).style("opacity", 1);
       tooltip.html(`
@@ -104,10 +104,10 @@ function drawBars(order = 'asc') {
         2021: ${sortedData[rectIndex].data[1].toFixed(2)} years<br>
         2022: ${sortedData[rectIndex].data[2].toFixed(2)} years
       `)
-      .style("left", (event.pageX + 5) + "px")
-      .style("top", (event.pageY - 28) + "px");
+        .style("left", (event.pageX + 5) + "px")
+        .style("top", (event.pageY - 28) + "px");
     })
-    .on("mouseout", function() {
+    .on("mouseout", function () {
       tooltip.transition().duration(500).style("opacity", 0);
     });
 
@@ -122,13 +122,13 @@ function drawBars(order = 'asc') {
       .attr("width", 10) // Adjust average bar width
       .attr("height", d => height - marginBottom - y(d.average))
       .attr("fill", "#ff9800") // Color for average bars
-      .on("mouseover", function(event, d) {
+      .on("mouseover", function (event, d) {
         tooltip.transition().duration(200).style("opacity", 1);
         tooltip.html(`<strong>${d.country} Average:</strong> ${d.average.toFixed(2)} years`)
           .style("left", (event.pageX + 5) + "px")
           .style("top", (event.pageY - 28) + "px");
       })
-      .on("mouseout", function() {
+      .on("mouseout", function () {
         tooltip.transition().duration(500).style("opacity", 0);
       });
   }
@@ -146,7 +146,7 @@ function drawBars(order = 'asc') {
 
   // Create a legend
   const legend = svg.append("g")
-    .attr("transform", `translate(${width - marginRight }, ${marginTop})`); // Positioning the legend
+    .attr("transform", `translate(${width - marginRight}, ${marginTop})`); // Positioning the legend
 
   const legendItems = legend.selectAll(".legend-item")
     .data(["2020", "2021", "2022"]) // Assuming these are the years you want to label
@@ -194,4 +194,4 @@ sortButtons.append("button")
   });
 
 // Attach to document
-document.body.appendChild(svg.node());
+document.body.appendChild(chart.node());
