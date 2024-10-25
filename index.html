@@ -9,7 +9,6 @@
     <meta name="author" content="SHIN THANT THI RI, YADANAR THEINT">
     <meta name="keywords" content="Data Visualisation, HTML, CSS, JavaScript" />
 
-    <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/card.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -22,19 +21,19 @@
     <title>ASEAN Health Visualization</title>
 </head>
 
-<body>
+<body class="bg-gray-50">
     <!-- Header -->
-    <header role="banner">
-        <nav role="navigation" aria-label="Main navigation">
-            <div>
-                <div>
-                    <a href="/">ASEAN Health Insights</a>
+    <header role="banner" class="bg-white shadow-lg">
+        <nav role="navigation" aria-label="Main navigation" class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold">ASEAN Health Insights</a>
                 </div>
-                <ul>
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#visualizations">Visualizations</a></li>
-                    <li><a href="#explorer">Data Explorer</a></li>
-                    <li><a href="#insights">Insights</a></li>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="#overview" class="text-gray-700 hover:text-blue-600">Overview</a></li>
+                    <li><a href="#visualizations" class="text-gray-700 hover:text-blue-600">Visualizations</a></li>
+                    <li><a href="#explorer" class="text-gray-700 hover:text-blue-600">Data Explorer</a></li>
+                    <li><a href="#insights" class="text-gray-700 hover:text-blue-600">Insights</a></li>
                 </ul>
             </div>
         </nav>
@@ -42,52 +41,54 @@
 
     <main role="main">
         <!-- Hero Section -->
-        <section id="overview" aria-labelledby="overview-title">
-            <div>
-                <header>
-                    <h1 id="overview-title">ASEAN Health Visualization</h1>
-                    <p>Exploring health metrics and demographic patterns across Southeast Asian nations</p>
+        <section id="overview" aria-labelledby="overview-title" class="py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <header class="text-center mb-8">
+                    <h1 id="overview-title" class="text-3xl font-bold mb-4">ASEAN Health Visualization</h1>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Exploring health metrics and demographic patterns across Southeast Asian nations
+                    </p>
                 </header>
 
                 <!-- Interactive Map -->
-                <figure class="map-container" aria-label="ASEAN region map">
-                    <div id="asean-map"></div>
+                <figure class="map-container mb-8" aria-label="ASEAN region map">
+                    <div id="asean-map" class="w-full h-full"></div>
                     <figcaption class="sr-only">Interactive map showing health metrics across ASEAN countries
                     </figcaption>
                 </figure>
 
                 <!-- Key Metrics Dashboard -->
-                <section aria-label="Key metrics dashboard">
+                <section aria-label="Key metrics dashboard" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <article class="metric-card">
-                        <h2>Life Expectancy</h2>
-                        <data id="avg-life-expectancy" value="00.0">00.0</data>
-                        <p>Regional Average</p>
+                        <h2 class="text-lg font-semibold mb-2">Life Expectancy</h2>
+                        <data class="text-3xl font-bold text-blue-600" id="avg-life-expectancy" value="75.2">75.2</data>
+                        <p class="text-sm text-gray-600">Regional Average</p>
                     </article>
 
                     <article class="metric-card">
-                        <h2>Population Health</h2>
-                        <data id="health-index" value="00.0">00.0</data>
-                        <p>Health Index</p>
+                        <h2 class="text-lg font-semibold mb-2">Population Health</h2>
+                        <data class="text-3xl font-bold text-green-600" id="health-index" value="82.4">82.4</data>
+                        <p class="text-sm text-gray-600">Health Index</p>
                     </article>
 
                     <article class="metric-card">
-                        <h2>Demographics</h2>
-                        <data id="total-population" value="000">0M</data>
-                        <p>Total Population</p>
+                        <h2 class="text-lg font-semibold mb-2">Demographics</h2>
+                        <data class="text-3xl font-bold text-purple-600" id="total-population" value="661">661M</data>
+                        <p class="text-sm text-gray-600">Total Population</p>
                     </article>
                 </section>
             </div>
         </section>
 
         <!-- Interactive Visualizations -->
-        <section id="visualizations" aria-labelledby="viz-title">
-            <div>
-                <h2 id="viz-title">Interactive Visualizations</h2>
+        <section id="visualizations" aria-labelledby="viz-title" class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 id="viz-title" class="text-2xl font-bold mb-8">Interactive Visualizations</h2>
 
-                <div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <!-- Temporal Trends -->
-                    <article class="visualization-card">
-                        <h3>Life Expectancy Trends</h3>
+                    <article class="visualization-card p-4">
+                        <h3 class="text-lg font-semibold mb-4">Life Expectancy Trends</h3>
                         <figure class="chart-container" id="temporal-chart"
                             aria-label="Line chart showing life expectancy trends">
                             <figcaption class="sr-only">Time series chart displaying life expectancy trends across ASEAN
@@ -96,8 +97,8 @@
                     </article>
 
                     <!-- Comparative Analysis -->
-                    <article class="visualization-card">
-                        <h3>Country Comparison</h3>
+                    <article class="visualization-card p-4">
+                        <h3 class="text-lg font-semibold mb-4">Country Comparison</h3>
                         <figure class="chart-container" id="comparison-chart"
                             aria-label="Bar chart comparing countries">
                             <figcaption class="sr-only">Bar chart comparing health metrics across ASEAN countries
@@ -109,23 +110,23 @@
         </section>
 
         <!-- Data Explorer -->
-        <section id="explorer" aria-labelledby="explorer-title">
-            <div>
-                <h2 id="explorer-title">Data Explorer</h2>
+        <section id="explorer" aria-labelledby="explorer-title" class="py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 id="explorer-title" class="text-2xl font-bold mb-8">Data Explorer</h2>
 
-                <form role="search">
-                    <fieldset>
-                        <legend>Time Period</legend>
-                        <select id="time-filter" aria-label="Select time period">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" role="search">
+                    <fieldset class="p-4 bg-gray-50 rounded-lg">
+                        <legend class="text-sm font-medium text-gray-700 mb-2">Time Period</legend>
+                        <select class="w-full p-2 border rounded" id="time-filter" aria-label="Select time period">
                             <option value="2024">2024</option>
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
                         </select>
                     </fieldset>
 
-                    <fieldset>
-                        <legend>Metrics</legend>
-                        <select id="metric-filter" aria-label="Select metric type">
+                    <fieldset class="p-4 bg-gray-50 rounded-lg">
+                        <legend class="text-sm font-medium text-gray-700 mb-2">Metrics</legend>
+                        <select class="w-full p-2 border rounded" id="metric-filter" aria-label="Select metric type">
                             <option value="life_expectancy">Life Expectancy</option>
                             <option value="population">Population</option>
                             <option value="health_index">Health Index</option>
@@ -133,7 +134,7 @@
                     </fieldset>
                 </form>
 
-                <article class="visualization-card">
+                <article class="visualization-card p-4">
                     <figure class="chart-container" id="explorer-chart" aria-label="Dynamic data visualization">
                         <figcaption class="sr-only">Interactive chart displaying selected metrics and time periods
                         </figcaption>
@@ -143,25 +144,25 @@
         </section>
 
         <!-- Insights Section -->
-        <section id="insights" aria-labelledby="insights-title">
-            <div>
-                <h2 id="insights-title">Key Insights</h2>
+        <section id="insights" aria-labelledby="insights-title" class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 id="insights-title" class="text-2xl font-bold mb-8">Key Insights</h2>
 
-                <div>
-                    <article class="visualization-card">
-                        <h3>Regional Patterns</h3>
-                        <p>Analysis of health trends across ASEAN nations reveals significant patterns in healthcare
-                            development and demographic transitions.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <article class="visualization-card p-6">
+                        <h3 class="text-lg font-semibold mb-4">Regional Patterns</h3>
+                        <p class="text-gray-600 mb-4">Analysis of health trends across ASEAN nations reveals significant
+                            patterns in healthcare development and demographic transitions.</p>
                         <figure class="chart-container" id="patterns-chart"
                             aria-label="Regional patterns visualization">
                             <figcaption class="sr-only">Chart showing regional health patterns and trends</figcaption>
                         </figure>
                     </article>
 
-                    <article class="visualization-card">
-                        <h3>Future Implications</h3>
-                        <p>Projected health trends and their potential impact on healthcare systems across Southeast
-                            Asia.</p>
+                    <article class="visualization-card p-6">
+                        <h3 class="text-lg font-semibold mb-4">Future Implications</h3>
+                        <p class="text-gray-600 mb-4">Projected health trends and their potential impact on healthcare
+                            systems across Southeast Asia.</p>
                         <figure class="chart-container" id="implications-chart"
                             aria-label="Future implications visualization">
                             <figcaption class="sr-only">Chart showing projected health trends and implications
@@ -172,6 +173,7 @@
             </div>
         </section>
     </main>
+
 
     <footer role="contentinfo">
         <div>
