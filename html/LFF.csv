@@ -1,0 +1,195 @@
+Life Expectancy  (Female) - In years,,,,,,,,,,
+Country ,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022
+Brunei Darussalam,78.3,78.5,77.5,78.7,78.2,79.4,78.8,78.7,78.9,78.3
+Cambodia,68.8,69.6,70.4,71.2,72,72.7,76.8,74.2,74.8,75.5
+Indonesia,72.4,72.6,72.8,72.8,73.1,73.2,73.3,73.5,73.6,73.8
+Lao,69,70,62,67,67,68,68,69,69,69
+Malaysia,76.9,77,77.1,77,77.1,77.2,77.4,77.2,77,75.8
+Myanmar,69.1,68.7,69.3,69.8,70.2,70.9,71.1,71.5,71.1,71.3
+Phillipines,-,-,75.9,-,-,-,-,77.5,77.5,77.5
+Singapore,84.5,84.8,85.1,85.1,85.4,85.5,85.9,85.9,85.5,85.2
+Thailand,-,-,-,78.6,79.4,79.6,79.7,80.1,80.5,80.7
+Vietnam,75.8,76,76.1,76.1,76.2,76.2,76.3,76.4,76.4,76.4
+
+data: [{
+            type: "spline",
+            visible: false,
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Brunei Darussalam",
+            dataPoints: [
+                { label: "2013", y: 78.3 },
+                { label: "2014", y: 78.5 },
+                { label: "2015", y: 77.5 },
+                { label: "2016", y: 78.7 },
+                { label: "2017", y: 78.2 },
+                { label: "2018", y: 79.4 },
+                { label: "2019", y: 78.8 },
+                { label: "2020", y: 78.7 },
+                { label: "2021", y: 78.9 },
+                { label: "2022", y: 78.3 }
+            ]
+        },
+        {
+            type: "spline", 
+            showInLegend: true,
+            visible: false,
+            yValueFormatString: "##.00years",
+            name: "Cambodia",
+            dataPoints: [
+                { label: "2013", y: 68.8 },
+                { label: "2014", y: 69.6 },
+                { label: "2015", y: 70.4 },
+                { label: "2016", y: 71.2 },
+                { label: "2017", y: 72 },
+                { label: "2018", y: 72.7 },
+                { label: "2019", y: 76.8 },
+                { label: "2020", y: 74.2 },
+                { label: "2021", y: 74.8 },
+                { label: "2022", y: 75.5 }
+            ]
+        },
+        {
+            type: "spline",
+            visible: false,
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Indonesia",
+            dataPoints: [
+                { label: "2013", y: 72.4 },
+                { label: "2014", y: 72.6 },
+                { label: "2015", y: 72.8 },
+                { label: "2016", y: 72.8 },
+                { label: "2017", y: 73.1 },
+                { label: "2018", y: 73.2 },
+                { label: "2019", y: 73.3 },
+                { label: "2020", y: 73.5 },
+                { label: "2021", y: 73.6 },
+                { label: "2022", y: 73.8 }
+            ]
+        },
+        {
+            type: "spline",
+              visible: false,
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Lao",
+            dataPoints: [
+                { label: "2013", y: 69 },
+                { label: "2014", y: 70 },
+                { label: "2015", y: 62 },
+                { label: "2016", y: 67 },
+                { label: "2017", y: 67 },
+                { label: "2018", y: 68 },
+                { label: "2019", y: 68 },
+                { label: "2020", y: 69 },
+                { label: "2021", y: 69 },
+                { label: "2022", y: 69 }
+            ]
+        },
+        {
+            type: "spline", 
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Malaysia",
+            dataPoints: [
+                { label: "2013", y: 76.9 },
+                { label: "2014", y: 77 },
+                { label: "2015", y: 77 },
+                { label: "2016", y: 77.1 },
+                { label: "2017", y: 77 },
+                { label: "2018", y: 77.1 },
+                { label: "2019", y: 77.2 },
+                { label: "2020", y: 77.4 },
+                { label: "2021", y: 77.2 },
+                { label: "2022", y: 75.8 }
+            ]
+        },
+        {
+            type: "spline", 
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Myanmar",
+            dataPoints: [
+                { label: "2013", y: 69.1 },
+                { label: "2014", y: 68.7 },
+                { label: "2015", y: 69.3 },
+                { label: "2016", y: 70.2 },
+                { label: "2017", y: 70.9 },
+                { label: "2018", y: 71.1 },
+                { label: "2019", y: 71.5 },
+                { label: "2020", y: 71.5 },
+                { label: "2021", y: 71.1 },
+                { label: "2022", y: 71.3 }
+            ]
+        },
+        {
+            type: "spline", 
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Phillipines",
+            dataPoints: [
+                { label: "2013", y: null },
+                { label: "2014", y: null },
+                { label: "2015", y: 75.9 },
+                { label: "2016", y: null },
+                { label: "2017", y: null },
+                { label: "2018", y: null },
+                { label: "2019", y: null },
+                { label: "2020", y: 77.5 },
+                { label: "2021", y: 77.5 },
+                { label: "2022", y: 77.5 }
+            ]
+        },
+              {
+            type: "spline", 
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Singapore",
+            dataPoints: [
+                { label: "2013", y: 84.5 },
+                { label: "2014", y: 84.8 },
+                { label: "2015", y: 85.1 },
+                { label: "2016", y: 85.1 },
+                { label: "2017", y: 85.4 },
+                { label: "2018", y: 85.5 },
+                { label: "2019", y: 85.9 },
+                { label: "2020", y: 85.9 },
+                { label: "2021", y: 85.5 },
+                { label: "2022", y: 85.2 }
+            ]
+        }, {
+            type: "spline", 
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Thailand",
+            dataPoints: [
+                { label: "2013", y: null },
+                { label: "2014", y: null },
+                { label: "2015", y: null },
+                { label: "2016", y: 78.6 },
+                { label: "2017", y: 79.4 },
+                { label: "2018", y: 79.6 },
+                { label: "2019", y: 79.7 },
+                { label: "2020", y: 80.1 },
+                { label: "2021", y: 80.5 },
+                { label: "2022", y: 80.7 }
+            ]
+        }, {
+            type: "spline", 
+            showInLegend: true,
+            yValueFormatString: "##.00years",
+            name: "Vietnam",
+            dataPoints: [
+                { label: "2013", y: 75.8 },
+                { label: "2014", y: 76 },
+                { label: "2015", y: 76.1 },
+                { label: "2016", y: 76.1 },
+                { label: "2017", y: 76.2 },
+                { label: "2018", y: 76.2 },
+                { label: "2019", y: 76.3 },
+                { label: "2020", y: 76.4 },
+                { label: "2021", y: 76.4 },
+                { label: "2022", y: 76.4 }
+            ]
+        }]
