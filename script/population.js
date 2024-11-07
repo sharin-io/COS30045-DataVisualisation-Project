@@ -1,15 +1,15 @@
 // Set the dimensions and margins of the graph
-var margin = { top: 30, right: 100, bottom: 70, left: 130 },
-    width = 800 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = { top: 20, right: 120, bottom: 80, left: 130 }, // Reduced the top margin to give more space for the chart
+  width = 1000 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
 
 // Append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 // Hard-coded data
 var data = [
@@ -28,9 +28,9 @@ var data = [
 // Define years based on the keys of the data (excluding 'Country')
 var years = Object.keys(data[0]).slice(1);
 
-// Set up the x scale
+// Set up the x scale (for the years)
 var x = d3.scaleBand()
-  .domain(data.map(function(d) { return d.Country; }))
+  .domain(years)
   .range([0, width])
   .padding(0.2);
 
@@ -38,75 +38,100 @@ var x = d3.scaleBand()
 svg.append("g")
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(x))
-  .selectAll("text") 
+  .selectAll("text")
   .style("text-anchor", "middle")
-  .attr("transform", "rotate(45)") 
-  .style("font-size", "8px"); 
+  .attr("transform", "rotate(45)")  // Rotate for better spacing
+  .style("font-size", "12px");
 
-// Set up the y scale
+// Set up the y scale (for population values)
 var y = d3.scaleLinear()
-  .domain([0, d3.max(data, function(d) {
-    return d3.sum(years, function(key) { return +d[key]; });
+  .domain([0, d3.max(data, function (d) {
+    return d3.max(years, function (key) { return +d[key]; });
   })])
   .range([height, 0]);
 
 // Add the y-axis
 svg.append("g")
-  .call(d3.axisLeft(y));
+  .call(d3.axisLeft(y).ticks(6).tickFormat(d3.format(".2s")));
 
-// Set up the color scale
-var color = d3.scaleOrdinal()
-  .domain(years)
-  .range(d3.schemeSet2);
+// Set up the size scale for bubbles (based on population)
+var size = d3.scaleSqrt()
+  .domain([0, d3.max(data, function (d) {
+    return d3.max(years, function (key) { return +d[key]; });
+  })])
+  .range([5, 30]); // Min and max bubble size
 
-// Stack the data for the years
-var stackedData = d3.stack()
-  .keys(years)(data);
-
-// Add the bars for the stacked chart
-var bars = svg.append("g")
-  .selectAll("g")
-  .data(stackedData)
-  .enter().append("g")
-  .attr("fill", function(d) { return color(d.key); });
-
-// Add rectangles to each stack
-bars.selectAll("rect")
-  .data(function(d) { return d; })
-  .enter().append("rect")
-  .attr("x", function(d) { return x(d.data.Country); })
-  .attr("width", x.bandwidth())
-  .attr("y", function(d) { return y(d[1]); })
-  .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-  .on("mouseover", function(event, d) {
-    // Show the tooltip
-    tooltip.style("visibility", "visible")
-      .text(d.data.Country + ": " + d.year + " - " + (d[1] - d[0]));
-
-    // Highlight the current bar
-    d3.select(this).style("opacity", 0.7);
-  })
-  .on("mousemove", function(event) {
-    // Position the tooltip next to the mouse cursor
-    tooltip.style("top", (event.pageY - 10) + "px")
-      .style("left", (event.pageX + 10) + "px");
-  })
-  .on("mouseout", function() {
-    // Hide the tooltip
-    tooltip.style("visibility", "hidden");
-
-    // Reset the bar opacity
-    d3.select(this).style("opacity", 1);
-  });
+// Set up the color scale for countries
+var color = d3.scaleOrdinal(d3.schemeSet3)
+  .domain(data.map(function (d) { return d.Country; }));
 
 // Create a div element for the tooltip
 var tooltip = d3.select("body").append("div")
-  .attr("class", "tooltip")
-  .style("position", "absolute")
-  .style("visibility", "hidden")
-  .style("background-color", "white")
-  .style("border", "1px solid #ccc")
-  .style("padding", "5px")
-  .style("border-radius", "3px")
+  .attr("class", "tooltip");
+
+// Create the bubbles
+svg.selectAll(".bubble")
+  .data(data.flatMap(function (d) {
+    return years.map(function (year) {
+      return {
+        Country: d.Country,
+        Year: year,
+        Population: d[year],
+        x: x(year),
+        y: y(d[year]),
+        size: size(d[year]),
+        color: color(d.Country)
+      };
+    });
+  }))
+  .enter().append("circle")
+  .attr("class", "bubble")
+  .attr("cx", function (d) { return d.x; })
+  .attr("cy", function (d) { return d.y; })
+  .attr("r", function (d) { return d.size; })
+  .style("fill", function (d) { return d.color; })
+  .style("opacity", 0.6)
+  .on("mouseover", function (event, d) {
+    tooltip.style("visibility", "visible")
+      .text(d.Country + " (" + d.Year + "): " + d3.format(".2s")(d.Population));
+
+    d3.select(this).style("opacity", 1);
+  })
+  .on("mousemove", function (event) {
+    tooltip.style("top", (event.pageY - 10) + "px")
+      .style("left", (event.pageX + 10) + "px");
+  })
+  .on("mouseout", function () {
+    tooltip.style("visibility", "hidden");
+    d3.select(this).style("opacity", 0.6);
+  });
+
+// Add a title to the chart
+svg.append("text")
+  .attr("x", width / 2)
+  .attr("y", margin.top - 5) // Adjusted to move it closer
+  .attr("text-anchor", "middle")
+  .style("font-size", "18px")
+  .style("font-weight", "bold")
+  .text("Population Growth of ASEAN Countries (2003-2023)");
+
+// Optional: Add a legend for the countries
+var legend = svg.selectAll(".legend")
+  .data(data)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function (d, i) { return "translate(" + (width + 20) + "," + (i * 20) + ")"; }); // Moved legend out of chart area
+
+legend.append("circle")
+  .attr("cx", 0)
+  .attr("cy", 9)
+  .attr("r", 6)
+  .style("fill", function (d) { return color(d.Country); });
+
+legend.append("text")
+  .attr("x", 15)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
   .style("font-size", "12px")
-  .style("box-shadow", "2px 2px 6px rgba(0,0,0,0.2)");
+  .text(function (d) { return d.Country; });

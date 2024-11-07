@@ -13,8 +13,10 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <!-- <script src="life_expectancy.js"></script> -->
-    <script src="script/.js"></script>
-    <script src="script/.js"></script>
+    <script type="module" src="../DataVisualisation-Project/script/LifeExpectFemale.js"></script>
+    <script type="module" src="../DataVisualisation-Project/script/LifeExpectancyTotal.js"></script>
+    <script type="module" src="../DataVisualisation-Project/script/Population.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <title>ASEAN Health Visualization</title>
@@ -40,7 +42,7 @@
     </header>
 
     <main role="main">
-        <!-- Hero Section -->
+        <!-- Header Section -->
         <section id="overview" aria-labelledby="overview-title" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-4">
                 <header class="text-center mb-8">
@@ -84,16 +86,37 @@
         <section id="visualizations" aria-labelledby="viz-title" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 id="viz-title" class="text-2xl font-bold mb-8">Interactive Visualizations</h2>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- Temporal Trends -->
-                    <article class="visualization-card p-4">
-                        <h3 class="text-lg font-semibold mb-4">Life Expectancy Trends</h3>
-                        <figure class="chart-container" id="temporal-chart"
-                            aria-label="Line chart showing life expectancy trends">
-                            <figcaption class="sr-only">Time series chart displaying life expectancy trends across ASEAN
-                                countries</figcaption>
-                        </figure>
+                    <!-- Life Expectancy Heatmap Section -->
+                    <a href="../DataVisualisation-Project/html/LifeExpectancyTotal.html">
+                        <article class="visualization-card p-6 mt-8">
+                            <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
+                            <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN
+                                countries
+                                from 2013 to 2022 with this interactive heatmap.</p>
+                            <figure class="chart-container" aria-label="Life Expectancy Heatmap">
+                                <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries
+                                    from
+                                    2013 to 2022</figcaption>
+                                <div id="life-expectancy-chart" class="w-full h-96"></div>
+
+                            </figure>
+                        </article>
+                    </a>
+
+                    <!-- Population Growth Bubble Chart Section-->
+                    <a href="../DataVisualisation-Project/html/population.html"></a>
+                    <article class="visualization-card p-6 mt-8">
+                        <h3 class="text-lg font-semibold mb-4">Population Growth of ASEAN Countries (2003-2023)</h3>
+                        <p class="text-gray-600 mb-4">Explore the population growth trends across ASEAN countries from
+                            2003 to 2023 with
+                            this interactive bubble chart.</p>
+                        <figure class="chart-container" aria-label="Population Growth Bubble Chart">
+                            <figcaption class="sr-only">Bubble chart showing population growth trends for ASEAN
+                                countries from 2003 to
+                                2023</figcaption>
+                            <div id="my_dataviz"></div>
+
                         </figure>
                     </article>
 
@@ -106,10 +129,11 @@
                             </figcaption>
                         </figure>
                     </article>
+
                 </div>
             </div>
         </section>
-        <script src="script/life-expectancy-female.js"></script>
+        <script src="../script/LifeExpectFemale.js"></script>
 
         <!-- Data Explorer -->
         <section id="explorer" aria-labelledby="explorer-title" class="py-12 bg-white">
@@ -140,6 +164,7 @@
                     <figure class="chart-container" id="explorer-chart" aria-label="Dynamic data visualization">
                         <figcaption class="sr-only">Interactive chart displaying selected metrics and time periods
                         </figcaption>
+
                     </figure>
                 </article>
             </div>

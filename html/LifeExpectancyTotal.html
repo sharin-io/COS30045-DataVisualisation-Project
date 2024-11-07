@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ASEAN Health Visualization Dashboard exploring health metrics and demographic patterns across Southeast Asian nations">
+    <meta name="author" content="SHIN THANT THI RI, YADANAR THEINT">
+    <meta name="keywords" content="Data Visualisation, HTML, CSS, JavaScript" />
+
+    <link rel="stylesheet" href="style/card.css">
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Linking the JavaScript File for Life Expectancy Chart -->
+    <script type="module" src="../script/LifeExpectancyTotal.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+    <title>ASEAN Life Expectancy Trends</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+        #life-expectancy-chart {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Life Expectancy Heatmap Section (Ensure a unique ID here) -->
+    <article class="visualization-card p-6 mt-8">
+        <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
+        <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN countries from 2013 to 2022
+            with this interactive heatmap.</p>
+        <figure class="chart-container" id="life-expectancy-heatmap" aria-label="Life Expectancy Heatmap">
+            <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries from
+                2013 to 2022</figcaption>
+            <!-- Ensure the heatmap chart renders in this div -->
+            <div id="life-expectancy-chart"></div>
+        </figure>
+    </article>
+
+</body>
+
+</html>
