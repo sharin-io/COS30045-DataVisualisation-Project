@@ -1,0 +1,341 @@
+Country ,a3 ,Year,Birth Rate
+Brunei Darusslam,BRN,1990,28.468
+Brunei Darusslam,BRN,1991,27.709
+Brunei Darusslam,BRN,1992,26.674
+Brunei Darusslam,BRN,1993,25.572
+Brunei Darusslam,BRN,1994,24.479
+Brunei Darusslam,BRN,1995,23.37
+Brunei Darusslam,BRN,1996,22.375
+Brunei Darusslam,BRN,1997,21.611
+Brunei Darusslam,BRN,1998,20.999
+Brunei Darusslam,BRN,1999,20.351
+Brunei Darusslam,BRN,2000,19.803
+Brunei Darusslam,BRN,2001,19.298
+Brunei Darusslam,BRN,2002,18.685
+Brunei Darusslam,BRN,2003,18.036
+Brunei Darusslam,BRN,2004,17.365
+Brunei Darusslam,BRN,2005,16.713
+Brunei Darusslam,BRN,2006,16.262
+Brunei Darusslam,BRN,2007,15.943
+Brunei Darusslam,BRN,2008,16.015
+Brunei Darusslam,BRN,2009,16.241
+Brunei Darusslam,BRN,2010,16.577
+Brunei Darusslam,BRN,2011,16.966
+Brunei Darusslam,BRN,2012,17.096
+Brunei Darusslam,BRN,2013,16.913
+Brunei Darusslam,BRN,2014,16.627
+Brunei Darusslam,BRN,2015,16.239
+Brunei Darusslam,BRN,2016,15.785
+Brunei Darusslam,BRN,2017,15.334
+Brunei Darusslam,BRN,2018,14.924
+Brunei Darusslam,BRN,2019,14.572
+Brunei Darusslam,BRN,2020,14.284
+Brunei Darusslam,BRN,2021,14.06
+Brunei Darusslam,BRN,2022,13.847
+Brunei Darusslam,BRN,2023,13.59
+Cambodia,KHM,1990,46.37
+Cambodia,KHM,1991,45.761
+Cambodia,KHM,1992,43.999
+Cambodia,KHM,1993,44.443
+Cambodia,KHM,1994,42.345
+Cambodia,KHM,1995,38.818
+Cambodia,KHM,1996,35.811
+Cambodia,KHM,1997,31.67
+Cambodia,KHM,1998,30.36
+Cambodia,KHM,1999,29.12
+Cambodia,KHM,2000,28.466
+Cambodia,KHM,2001,28.11
+Cambodia,KHM,2002,27.528
+Cambodia,KHM,2003,26.88
+Cambodia,KHM,2004,26.261
+Cambodia,KHM,2005,26.104
+Cambodia,KHM,2006,26.127
+Cambodia,KHM,2007,26.209
+Cambodia,KHM,2008,25.88
+Cambodia,KHM,2009,25.625
+Cambodia,KHM,2010,25.036
+Cambodia,KHM,2011,24.631
+Cambodia,KHM,2012,24.578
+Cambodia,KHM,2013,24.56
+Cambodia,KHM,2014,24.403
+Cambodia,KHM,2015,24.218
+Cambodia,KHM,2016,23.956
+Cambodia,KHM,2017,23.655
+Cambodia,KHM,2018,23.372
+Cambodia,KHM,2019,22.988
+Cambodia,KHM,2020,22.988
+Cambodia,KHM,2021,21.905
+Cambodia,KHM,2022,21.279
+Cambodia,KHM,2023,20.752
+Indonesia,IDN,1990,25.808
+Indonesia,IDN,1991,25.546
+Indonesia,IDN,1992,24.822
+Indonesia,IDN,1993,24.533
+Indonesia,IDN,1994,24.263
+Indonesia,IDN,1995,24.029
+Indonesia,IDN,1996,23.889
+Indonesia,IDN,1997,23.6
+Indonesia,IDN,1998,22.967
+Indonesia,IDN,1999,22.21
+Indonesia,IDN,2000,21.688
+Indonesia,IDN,2001,21.386
+Indonesia,IDN,2002,21.107
+Indonesia,IDN,2003,20.834
+Indonesia,IDN,2004,20.796
+Indonesia,IDN,2005,21.018
+Indonesia,IDN,2006,20.943
+Indonesia,IDN,2007,20.968
+Indonesia,IDN,2008,20.511
+Indonesia,IDN,2009,20.375
+Indonesia,IDN,2010,20.362
+Indonesia,IDN,2011,20.611
+Indonesia,IDN,2012,20.41
+Indonesia,IDN,2013,19.643
+Indonesia,IDN,2014,19.091
+Indonesia,IDN,2015,18.569
+Indonesia,IDN,2016,18.138
+Indonesia,IDN,2017,17.54
+Indonesia,IDN,2018,17.146
+Indonesia,IDN,2019,16.909
+Indonesia,IDN,2020,16.674
+Indonesia,IDN,2021,16.417
+Indonesia,IDN,2022,16.204
+Indonesia,IDN,2023,15.941
+Laos,LAO,1990,42.489
+Laos,LAO,1991,42.206
+Laos,LAO,1992,41.745
+Laos,LAO,1993,41.231
+Laos,LAO,1994,39.999
+Laos,LAO,1995,38.469
+Laos,LAO,1996,37.231
+Laos,LAO,1997,36.182
+Laos,LAO,1998,35.091
+Laos,LAO,1999,34.19
+Laos,LAO,2000,32.901
+Laos,LAO,2001,32.112
+Laos,LAO,2002,31.18
+Laos,LAO,2003,30.66
+Laos,LAO,2004,30.075
+Laos,LAO,2005,28.788
+Laos,LAO,2006,28.365
+Laos,LAO,2007,28.124
+Laos,LAO,2008,27.882
+Laos,LAO,2009,27.569
+Laos,LAO,2010,27.195
+Laos,LAO,2011,26.777
+Laos,LAO,2012,26.174
+Laos,LAO,2013,25.623
+Laos,LAO,2014,25.049
+Laos,LAO,2015,24.962
+Laos,LAO,2016,24.567
+Laos,LAO,2017,24.117
+Laos,LAO,2018,23.599
+Laos,LAO,2019,23.151
+Laos,LAO,2020,22.618
+Laos,LAO,2021,22.147
+Laos,LAO,2022,21.693
+Laos,LAO,2023,21.271
+Malaysia,MYS,1990,26.219
+Malaysia,MYS,1991,26.513
+Malaysia,MYS,1992,26.793
+Malaysia,MYS,1993,26.757
+Malaysia,MYS,1994,26.59
+Malaysia,MYS,1995,26.3
+Malaysia,MYS,1996,26.07
+Malaysia,MYS,1997,25.401
+Malaysia,MYS,1998,24.378
+Malaysia,MYS,1999,23.765
+Malaysia,MYS,2000,22.603
+Malaysia,MYS,2001,21.401
+Malaysia,MYS,2002,20.089
+Malaysia,MYS,2003,19.55
+Malaysia,MYS,2004,18.682
+Malaysia,MYS,2005,17.94
+Malaysia,MYS,2006,17.395
+Malaysia,MYS,2007,17.091
+Malaysia,MYS,2008,17.356
+Malaysia,MYS,2009,17.29
+Malaysia,MYS,2010,16.906
+Malaysia,MYS,2011,17.186
+Malaysia,MYS,2012,17.002
+Malaysia,MYS,2013,16.761
+Malaysia,MYS,2014,16.724
+Malaysia,MYS,2015,16.336
+Malaysia,MYS,2016,15.789
+Malaysia,MYS,2017,15.329
+Malaysia,MYS,2018,14.808
+Malaysia,MYS,2019,14.233
+Malaysia,MYS,2020,13.393
+Malaysia,MYS,2021,12.385
+Malaysia,MYS,2022,12.394
+Malaysia,MYS,2023,12.412
+Myanmar,MMR,1990,27.234
+Myanmar,MMR,1991,26.947
+Myanmar,MMR,1992,26.529
+Myanmar,MMR,1993,26.148
+Myanmar,MMR,1994,25.649
+Myanmar,MMR,1995,25.165
+Myanmar,MMR,1996,24.731
+Myanmar,MMR,1997,24.262
+Myanmar,MMR,1998,23.785
+Myanmar,MMR,1999,23.393
+Myanmar,MMR,2000,23.164
+Myanmar,MMR,2001,23.06
+Myanmar,MMR,2002,22.892
+Myanmar,MMR,2003,22.252
+Myanmar,MMR,2004,21.531
+Myanmar,MMR,2005,20.966
+Myanmar,MMR,2006,20.599
+Myanmar,MMR,2007,20.373
+Myanmar,MMR,2008,19.993
+Myanmar,MMR,2009,19.681
+Myanmar,MMR,2010,19.365
+Myanmar,MMR,2011,19.086
+Myanmar,MMR,2012,18.819
+Myanmar,MMR,2013,18.684
+Myanmar,MMR,2014,18.551
+Myanmar,MMR,2015,18.608
+Myanmar,MMR,2016,18.561
+Myanmar,MMR,2017,18.341
+Myanmar,MMR,2018,18.054
+Myanmar,MMR,2019,17.774
+Myanmar,MMR,2020,17.456
+Myanmar,MMR,2021,17.201
+Myanmar,MMR,2022,16.912
+Myanmar,MMR,2023,16.696
+Phillipines,PHL,1990,34.516
+Phillipines,PHL,1991,34.257
+Phillipines,PHL,1992,33.074
+Phillipines,PHL,1993,32.598
+Phillipines,PHL,1994,32.269
+Phillipines,PHL,1995,32.066
+Phillipines,PHL,1996,31.361
+Phillipines,PHL,1997,30.818
+Phillipines,PHL,1998,30.237
+Phillipines,PHL,1999,29.836
+Phillipines,PHL,2000,29.285
+Phillipines,PHL,2001,29.145
+Phillipines,PHL,2002,28.534
+Phillipines,PHL,2003,28.101
+Phillipines,PHL,2004,27.629
+Phillipines,PHL,2005,27.154
+Phillipines,PHL,2006,27.419
+Phillipines,PHL,2007,27
+Phillipines,PHL,2008,27.12
+Phillipines,PHL,2009,26.987
+Phillipines,PHL,2010,26.564
+Phillipines,PHL,2011,26.007
+Phillipines,PHL,2012,25.22
+Phillipines,PHL,2013,24.56
+Phillipines,PHL,2014,23.404
+Phillipines,PHL,2015,22.933
+Phillipines,PHL,2016,21.76
+Phillipines,PHL,2017,20.571
+Phillipines,PHL,2018,19.418
+Phillipines,PHL,2019,18.104
+Phillipines,PHL,2020,17.017
+Phillipines,PHL,2021,16.108
+Phillipines,PHL,2022,16.057
+Phillipines,PHL,2023,16.019
+Singapore,SGP,1990,16.591
+Singapore,SGP,1991,15.72
+Singapore,SGP,1992,15.56
+Singapore,SGP,1993,15.512
+Singapore,SGP,1994,15.027
+Singapore,SGP,1995,14.512
+Singapore,SGP,1996,14.09
+Singapore,SGP,1997,13.364
+Singapore,SGP,1998,12.16
+Singapore,SGP,1999,11.873
+Singapore,SGP,2000,12.696
+Singapore,SGP,2001,11.168
+Singapore,SGP,2002,11.082
+Singapore,SGP,2003,10.14
+Singapore,SGP,2004,9.864
+Singapore,SGP,2005,9.746
+Singapore,SGP,2006,9.613
+Singapore,SGP,2007,9.497
+Singapore,SGP,2008,9.248
+Singapore,SGP,2009,8.96
+Singapore,SGP,2010,8.399
+Singapore,SGP,2011,8.68
+Singapore,SGP,2012,9.243
+Singapore,SGP,2013,8.486
+Singapore,SGP,2014,8.893
+Singapore,SGP,2015,8.621
+Singapore,SGP,2016,8.354
+Singapore,SGP,2017,8.334
+Singapore,SGP,2018,8.471
+Singapore,SGP,2019,8.374
+Singapore,SGP,2020,8.383
+Singapore,SGP,2021,8.226
+Singapore,SGP,2022,7.995
+Singapore,SGP,2023,8.2
+Thailand,THA,1990,19.622
+Thailand,THA,1991,19.452
+Thailand,THA,1992,19.19
+Thailand,THA,1993,18.744
+Thailand,THA,1994,18.238
+Thailand,THA,1995,17.676
+Thailand,THA,1996,17.254
+Thailand,THA,1997,16.83
+Thailand,THA,1998,16.277
+Thailand,THA,1999,15.585
+Thailand,THA,2000,15.027
+Thailand,THA,2001,14.665
+Thailand,THA,2002,14.335
+Thailand,THA,2003,14.053
+Thailand,THA,2004,13.82
+Thailand,THA,2005,13.488
+Thailand,THA,2006,13.208
+Thailand,THA,2007,12.926
+Thailand,THA,2008,12.525
+Thailand,THA,2009,12.188
+Thailand,THA,2010,12.009
+Thailand,THA,2011,11.943
+Thailand,THA,2012,11.758
+Thailand,THA,2013,11.367
+Thailand,THA,2014,10.95
+Thailand,THA,2015,10.594
+Thailand,THA,2016,10.111
+Thailand,THA,2017,9.765
+Thailand,THA,2018,9.4
+Thailand,THA,2019,9.056
+Thailand,THA,2020,8.792
+Thailand,THA,2021,8.544
+Thailand,THA,2022,8.38
+Thailand,THA,2023,8.245
+Vietnam,VNM,1990,28.896
+Vietnam,VNM,1991,28.489
+Vietnam,VNM,1992,27.342
+Vietnam,VNM,1993,26.094
+Vietnam,VNM,1994,24.452
+Vietnam,VNM,1995,22.727
+Vietnam,VNM,1996,21.012
+Vietnam,VNM,1997,19.573
+Vietnam,VNM,1998,18.254
+Vietnam,VNM,1999,17.591
+Vietnam,VNM,2000,18.018
+Vietnam,VNM,2001,18.095
+Vietnam,VNM,2002,18.095
+Vietnam,VNM,2003,18.151
+Vietnam,VNM,2004,17.996
+Vietnam,VNM,2005,17.369
+Vietnam,VNM,2006,17.249
+Vietnam,VNM,2007,17.537
+Vietnam,VNM,2008,17.664
+Vietnam,VNM,2009,17.528
+Vietnam,VNM,2010,17.409
+Vietnam,VNM,2011,17.588
+Vietnam,VNM,2012,17.892
+Vietnam,VNM,2013,17.888
+Vietnam,VNM,2014,18.671
+Vietnam,VNM,2015,18.498
+Vietnam,VNM,2016,17.313
+Vietnam,VNM,2017,16.764
+Vietnam,VNM,2018,15.438
+Vietnam,VNM,2019,15.513
+Vietnam,VNM,2020,15.234
+Vietnam,VNM,2021,14.735
+Vietnam,VNM,2022,14.272
+Vietnam,VNM,2023,13.831
