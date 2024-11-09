@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="ASEAN Health Visualization Dashboard exploring health metrics ,and demographic patterns across Southeast Asian nations">
+        <meta name="author" content="YADANAR THEINT" ,"SHIN THANT THI RI">
+        <meta name="keywords" content="Data Visualisation, HTML, CSS, JavaScript" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <title>Radar chart</title>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="../script/RadarChart.js"></script>
-  <style>
-    body {
-      overflow: hidden;
-      margin: 0;
-      font-size: 14px;
-      font-family: "Helvetica Neue", Helvetica;
-    }
-
-    #chart {
-      position: absolute;
-      top: 50px;
-      left: 100px;
-    }
-  </style>
+    <title>Life Expectancy Radial Chart</title>
+    <style>
+        .chart-container {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .tooltip {
+            position: absolute;
+            background: white;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 1000;
+        }
+        path {
+            transition: opacity 0.2s;
+        }
+        path:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
-
 <body>
-  <h2>Life Expectancy of Male in ASEAN Countries </h2>
-  <div id="body">
-    <div id="chart"></div>
-  </div>
+    <div class="chart-container">
+        <h2 style="text-align: center; color: #333;">Life Expectancy of Males (2013-2022)</h2>
+        <svg width="800" height="800" id="chart"></svg>
+        <div class="tooltip"></div>
+        <div id="legend" style="text-align: center; margin-top: 20px;"></div>
+    </div>
 
-  <script type="text/javascript" src="../script/script.js"></script>
-
+    <script src="testing.js">
+    </script>
 </body>
-
 </html>
