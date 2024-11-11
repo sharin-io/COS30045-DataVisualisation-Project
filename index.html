@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style/card.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
-    <!-- <script src="life_expectancy.js"></script> -->
+    <!-- script -->
     <script type="module" src="script/LifeExpectFemale.js"></script>
     <script type="module" src="script/LifeExpectancyTotal.js"></script>
     <script type="module" src="script/Population.js"></script>
@@ -34,7 +34,7 @@
                 <ul class="flex items-center space-x-4">
                     <li><a href="#overview" class="text-gray-700 hover:text-blue-600">Overview</a></li>
                     <li><a href="#visualizations" class="text-gray-700 hover:text-blue-600">Visualizations</a></li>
-                    <li><a href="#explorer" class="text-gray-700 hover:text-blue-600">Data Explorer</a></li>
+                    <li><a href="#analysis" class="text-gray-700 hover:text-blue-600">Data Explorer</a></li>
                     <li><a href="#insights" class="text-gray-700 hover:text-blue-600">Insights</a></li>
                 </ul>
             </div>
@@ -63,19 +63,19 @@
                 <section aria-label="Key metrics dashboard" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Life Expectancy</h2>
-                        <data class="text-3xl font-bold text-blue-600" id="avg-life-expectancy" value="00.0">00.0</data>
+                        <data class="text-3xl font-bold text-blue-600" id="avg-life-expectancy" value="73.2">73.2</data>
                         <p class="text-sm text-gray-600">Regional Average</p>
                     </article>
 
                     <article class="metric-card">
-                        <h2 class="text-lg font-semibold mb-2">Population Health</h2>
-                        <data class="text-3xl font-bold text-green-600" id="health-index" value="00.0">00.0</data>
-                        <p class="text-sm text-gray-600">Health Index</p>
+                        <h2 class="text-lg font-semibold mb-2">Population</h2>
+                        <data class="text-3xl font-bold text-green-600" id="total-population" value="660">660M</data>
+                        <p class="text-sm text-gray-600">Total ASEAN</p>
                     </article>
 
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Demographics</h2>
-                        <data class="text-3xl font-bold text-purple-600" id="birth-rate" value="000">000M</data>
+                        <data class="text-3xl font-bold text-purple-600" id="birth-rate" value="00.0">00.0M</data>
                         <p class="text-sm text-gray-600">Birth Rate</p>
                     </article>
                 </section>
@@ -106,7 +106,6 @@
 
                     <!-- Population Growth Bubble Chart Section-->
                     <a href="html/population.html">
-                        <!-- Population Growth Bubble Chart Section (Ensure a unique ID here) -->
                         <article class="visualization-card p-6 mt-8">
                             <h3 class="text-lg font-semibold mb-4">Population Growth of ASEAN Countries (2003-2023)</h3>
                             <p class="text-gray-600 mb-4">Explore the population growth trends across ASEAN countries
@@ -160,7 +159,51 @@
                 </article>
             </div>
         </section>
+        <!-- Gender Analysis Section -->
+        <section id="analysis" class="py-8 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-6">Gender-Based Analysis</h2>
 
+                <!-- Male Life Expectancy -->
+                <a href="html/LifeExpectMale.html">
+                    <!-- Population Growth Bubble Chart -->
+                    <article class="visualization-card p-6 mt-8">
+                        <h3 class="text-lg font-semibold mb-4">Male Life Expectancy (2003-2023)</h3>
+                        <p class="text-gray-600 mb-4">Explore the Male Life Expectancy trends across ASEAN countries
+                            from
+                            2003 to 2023 with
+                            this interactive Rader chart.</p>
+                        <figure class="chart-container" aria-label="Male Life Expectancy Chart">
+                            <figcaption class="sr-only">Rader chart showing life-expectancy of Male for ASEAN
+                                countries from 2003 to
+                                2023</figcaption>
+                            <div id="male-radar-chart"></div>
+
+                        </figure>
+                    </article>
+                </a>
+
+                <!-- Female Life Expectancy -->
+                <a href="html/LifeExpectFemale.html">
+                    <!-- Population Growth Bubble Chart -->
+                    <article class="visualization-card p-6 mt-8">
+                        <h3 class="text-lg font-semibold mb-4">Female Life Expectancy (2003-2023)</h3>
+                        <p class="text-gray-600 mb-4">Explore the Female Life Expectancy trends across ASEAN countries
+                            from
+                            2003 to 2023 with
+                            this interactive Line chart.</p>
+                        <figure class="chart-container" aria-label="Male Life Expectancy Chart">
+                            <figcaption class="sr-only">Line chart showing life-expectancy of Female for ASEAN
+                                countries from 2003 to
+                                2023</figcaption>
+                            <div id="female-line-chart"></div>
+
+                        </figure>
+                    </article>
+                </a>
+            </div>
+            </div>
+        </section>
         <!-- Insights Section -->
         <section id="insights" aria-labelledby="insights-title" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4">

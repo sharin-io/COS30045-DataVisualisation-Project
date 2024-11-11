@@ -1,5 +1,5 @@
- // Data
- const data = {
+// Data
+const data = {
     "Brunei Darussalam": [
         { year: 2013, value: 78.3 },
         { year: 2014, value: 78.5 },
@@ -36,7 +36,7 @@
         { year: "2021", value: 73.6 },
         { year: "2022", value: 73.8 }
     ],
-    "Laos":[
+    "Laos": [
         { year: "2013", value: 69 },
         { year: "2014", value: 70 },
         { year: "2015", value: 62 },
@@ -48,7 +48,7 @@
         { year: "2021", value: 69 },
         { year: "2022", value: 69 }
     ],
-    "Malaysia":[
+    "Malaysia": [
         { year: "2013", value: 76.9 },
         { year: "2014", value: 77 },
         { year: "2015", value: 77 },
@@ -60,23 +60,23 @@
         { year: "2021", value: 77.2 },
         { year: "2022", value: 75.8 }
     ],
-    "Myanmar":[
-        { year: "2013",  value: 69.1 },
-        { year: "2014",  value: 68.7 },
-        { year: "2015",  value: 69.3 },
-        { year: "2016",  value: 70.2 },
-        { year: "2017",  value: 70.9 },
-        { year: "2018",  value: 71.1 },
-        { year: "2019",  value: 71.5 },
+    "Myanmar": [
+        { year: "2013", value: 69.1 },
+        { year: "2014", value: 68.7 },
+        { year: "2015", value: 69.3 },
+        { year: "2016", value: 70.2 },
+        { year: "2017", value: 70.9 },
+        { year: "2018", value: 71.1 },
+        { year: "2019", value: 71.5 },
         { year: "2020", value: 71.5 },
-        { year: "2021",  value: 71.1 },
-        { year: "2022",  value: 71.3 }
+        { year: "2021", value: 71.1 },
+        { year: "2022", value: 71.3 }
     ],
-    "Phillipines":[
+    "Phillipines": [
         { year: "2013", value: null },
         { year: "2014", value: null },
         { year: "2015", value: 75.9 },
-        { year: "2016",value: null },
+        { year: "2016", value: null },
         { year: "2017", value: null },
         { year: "2018", value: null },
         { year: "2019", value: null },
@@ -84,7 +84,7 @@
         { year: "2021", value: 77.5 },
         { year: "2022", value: 77.5 }
     ],
-    "Singapore":[
+    "Singapore": [
         { year: "2013", value: 84.5 },
         { year: "2014", value: 84.8 },
         { year: "2015", value: 85.1 },
@@ -96,7 +96,7 @@
         { year: "2021", value: 85.5 },
         { year: "2022", value: 85.2 }
     ],
-    "Thailand":[
+    "Thailand": [
         { year: "2013", value: null },
         { year: "2014", value: null },
         { year: "2015", value: null },
@@ -106,9 +106,9 @@
         { year: "2019", value: 79.7 },
         { year: "2020", value: 80.1 },
         { year: "2021", value: 80.5 },
-        {year: "2022", value: 80.7 }
+        { year: "2022", value: 80.7 }
     ],
-    "Vietnam":[
+    "Vietnam": [
         { year: "2013", value: 75.8 },
         { year: "2014", value: 76 },
         { year: "2015", value: 76.1 },
@@ -123,12 +123,12 @@
 };
 
 // Set up dimensions with more right margin for labels
-const margin = { top: 50, right: 150, bottom: 50, left: 150};
+const margin = { top: 50, right: 150, bottom: 50, left: 150 };
 const width = 1200 - margin.left - margin.right;
 const height = 700 - margin.top - margin.bottom;
 
 // Create SVG
-const svg = d3.select("#chart")
+const svg = d3.select("#LEF")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -197,7 +197,7 @@ Object.entries(data).forEach(([country, values]) => {
 
     // Add label at the end of line with an extension line
     if (lastPoint) {
-        const labelX = x(lastPoint.year) + 20; // Adjusted x position for better visibility
+        const labelX = x(lastPoint.year) + 20;
         const labelY = y(lastPoint.value);
 
         // Draw an extension line
@@ -252,7 +252,7 @@ svg.append("rect")
 function mousemove(event) {
     const mouseX = d3.pointer(event)[0];
     const year = Math.round(x.invert(mouseX));
-    
+
     if (year >= 2013 && year <= 2022) {
         // Update vertical line
         verticalLine
