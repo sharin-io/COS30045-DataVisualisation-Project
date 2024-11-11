@@ -1,367 +1,367 @@
-<<<<<<< Updated upstream
+
 const data = [
-    {
-        country: "Brunei",
-        years: [
-            { year: 2013, ages: [77.7] },	
-            { year: 2014, ages: [75.8] },
-            { year: 2015, ages: [77.8] },	
-            { year: 2016, ages: [76.9] },
-            { year: 2017, ages: [76.4] },	
-            { year: 2018, ages: [77.5] },
-            { year: 2019, ages: [76.6] },
-            { year: 2020, ages: [77.1] },
-            { year: 2021, ages: [76.3] },
-            { year: 2022, ages:[74.5] },
-        ]
-    },
-    {
-        country: "Cambodia",
-        years: [
-            { year: 2013, ages: [64.8] },
-            { year: 2014, ages: [65.6] },
-            { year: 2015, ages: [66.4] },
-            { year: 2016, ages: [67.1] },
-            { year: 2017, ages: [67.9] },
-            { year: 2018, ages: [68.6] },
-            { year: 2019, ages: [74.2] },
-            { year: 2020, ages: [69.9] },
-            { year: 2021, ages: [70.6] },
-            { year: 2022, ages: [71.2] }
-        ]
-    },
-    // Add similar data for 9 more countries
-    {
-        country: "Indonesia",
-        years: [
-            { year: 2013, ages: [68.5] },
-            { year: 2014, ages: [68.9] },
-            { year: 2015, ages: [68.9] },
-            { year: 2016, ages: [68.1] },
-            { year: 2017, ages: [69.2] },
-            { year: 2018, ages: [69.3] },
-            { year: 2019, ages: [69.4] },
-            { year: 2020, ages: [69.6] },
-            { year: 2021, ages: [69.7] },
-            { year: 2022, ages: [69.9] }
-        ]
-    },
-    {
-        country: "Lao",
-        years: [
-            { year: 2013, ages: [65] },
-            { year: 2014, ages: [66] },
-            { year: 2015, ages: [65] },
-            { year: 2016, ages: [63] },
-            { year: 2017, ages: [65] },
-            { year: 2018, ages: [64] },
-            { year: 2019, ages: [65] },
-            { year: 2020, ages: [65] },
-            { year: 2021, ages: [65] },
-            { year: 2022, ages: [66] }
-        ]
-    },
-    {
-        country: "Malaysia",
-        years: [
-            { year: 2013, ages: [72.3] },
-            { year: 2014, ages: [72.4] },
-            { year: 2015, ages: [72.5] },
-            { year: 2016, ages: [72.1] },
-            { year: 2017, ages: [72.1] },
-            { year: 2018, ages: [72.3] },
-            { year: 2019, ages: [72.5] },
-            { year: 2020, ages: [72.5] },
-            { year: 2021, ages: [72.3] },
-            { year: 2022, ages: [71.3] }
-        ]
-    },
-    {
-        country: "Myanmar",
-        years: [
-            { year: 2013, ages: [65.5] },
-            { year: 2014, ages: [59.3] },
-            { year: 2015, ages: [59.7] },
-            { year: 2016, ages: [60.3] },
-            { year: 2017, ages: [60.8] },
-            { year: 2018, ages: [61.3] },
-            { year: 2019, ages: [62] },
-            { year: 2020, ages: [62] },
-            { year: 2021, ages: [62.7] },
-            { year: 2022, ages: [62.7] }
-        ]
-    },
-    {
-        country: "Phillipines",
-        years: [
-            { year: 2013, ages: [ ] },
-            { year: 2014, ages: [ ] },
-            { year: 2015, ages: [69.6] },
-            { year: 2016, ages: [ ] },
-            { year: 2017, ages: [ ] },
-            { year: 2018, ages: [ ] },
-            { year: 2019, ages: [ ] },
-            { year: 2020, ages: [71.3] },
-            { year: 2021, ages: [71.3] },
-            { year: 2022, ages: [71.3] }
-        ]
-    },
-    {
-        country: "Singapore",
-        years: [
-            { year: 2013, ages: [80.1] },
-            { year: 2014, ages: [80.3] },
-            { year: 2015, ages: [80.5] },
-            { year: 2016, ages: [80.7] },
-            { year: 2017, ages: [80.9] },
-            { year: 2018, ages: [81.2] },
-            { year: 2019, ages: [81.4] },
-            { year: 2020, ages: [81.3] },
-            { year: 2021, ages: [80.8] },
-            { year: 2022, ages: [80.7] }
-        ]
-    },
-    {
-        country: "Thailand",
-        years: [
-            { year: 2013, ages: [ ] },
-            { year: 2014, ages: [ ] },
-            { year: 2015, ages: [ ] },
-            { year: 2016, ages: [71.2] },
-            { year: 2017, ages: [71.8] },
-            { year: 2018, ages: [72] },
-            { year: 2019, ages: [71.9] },
-            { year: 2020, ages: [72.4] },
-            { year: 2021, ages: [73.5] },
-            { year: 2022, ages: [73.6] }
-        ]
-    },
-    {
-        country: "Vietnam",
-        years: [
-            { year: 2013, ages: [70.5 ] },
-            { year: 2014, ages: [70.6] },
-            { year: 2015, ages: [70.7] },
-            { year: 2016, ages: [70.8] },
-            { year: 2017, ages: [70.9] },
-            { year: 2018, ages: [70.9] },
-            { year: 2019, ages: [71] },
-            { year: 2020, ages: [71] },
-            { year: 2021, ages: [71.1] },
-            { year: 2022, ages: [71.1] }
-        ]
-    }
+  {
+    country: "Brunei",
+    years: [
+      { year: 2013, ages: [77.7] },
+      { year: 2014, ages: [75.8] },
+      { year: 2015, ages: [77.8] },
+      { year: 2016, ages: [76.9] },
+      { year: 2017, ages: [76.4] },
+      { year: 2018, ages: [77.5] },
+      { year: 2019, ages: [76.6] },
+      { year: 2020, ages: [77.1] },
+      { year: 2021, ages: [76.3] },
+      { year: 2022, ages: [74.5] },
+    ]
+  },
+  {
+    country: "Cambodia",
+    years: [
+      { year: 2013, ages: [64.8] },
+      { year: 2014, ages: [65.6] },
+      { year: 2015, ages: [66.4] },
+      { year: 2016, ages: [67.1] },
+      { year: 2017, ages: [67.9] },
+      { year: 2018, ages: [68.6] },
+      { year: 2019, ages: [74.2] },
+      { year: 2020, ages: [69.9] },
+      { year: 2021, ages: [70.6] },
+      { year: 2022, ages: [71.2] }
+    ]
+  },
+  // Add similar data for 9 more countries
+  {
+    country: "Indonesia",
+    years: [
+      { year: 2013, ages: [68.5] },
+      { year: 2014, ages: [68.9] },
+      { year: 2015, ages: [68.9] },
+      { year: 2016, ages: [68.1] },
+      { year: 2017, ages: [69.2] },
+      { year: 2018, ages: [69.3] },
+      { year: 2019, ages: [69.4] },
+      { year: 2020, ages: [69.6] },
+      { year: 2021, ages: [69.7] },
+      { year: 2022, ages: [69.9] }
+    ]
+  },
+  {
+    country: "Lao",
+    years: [
+      { year: 2013, ages: [65] },
+      { year: 2014, ages: [66] },
+      { year: 2015, ages: [65] },
+      { year: 2016, ages: [63] },
+      { year: 2017, ages: [65] },
+      { year: 2018, ages: [64] },
+      { year: 2019, ages: [65] },
+      { year: 2020, ages: [65] },
+      { year: 2021, ages: [65] },
+      { year: 2022, ages: [66] }
+    ]
+  },
+  {
+    country: "Malaysia",
+    years: [
+      { year: 2013, ages: [72.3] },
+      { year: 2014, ages: [72.4] },
+      { year: 2015, ages: [72.5] },
+      { year: 2016, ages: [72.1] },
+      { year: 2017, ages: [72.1] },
+      { year: 2018, ages: [72.3] },
+      { year: 2019, ages: [72.5] },
+      { year: 2020, ages: [72.5] },
+      { year: 2021, ages: [72.3] },
+      { year: 2022, ages: [71.3] }
+    ]
+  },
+  {
+    country: "Myanmar",
+    years: [
+      { year: 2013, ages: [65.5] },
+      { year: 2014, ages: [59.3] },
+      { year: 2015, ages: [59.7] },
+      { year: 2016, ages: [60.3] },
+      { year: 2017, ages: [60.8] },
+      { year: 2018, ages: [61.3] },
+      { year: 2019, ages: [62] },
+      { year: 2020, ages: [62] },
+      { year: 2021, ages: [62.7] },
+      { year: 2022, ages: [62.7] }
+    ]
+  },
+  {
+    country: "Phillipines",
+    years: [
+      { year: 2013, ages: [] },
+      { year: 2014, ages: [] },
+      { year: 2015, ages: [69.6] },
+      { year: 2016, ages: [] },
+      { year: 2017, ages: [] },
+      { year: 2018, ages: [] },
+      { year: 2019, ages: [] },
+      { year: 2020, ages: [71.3] },
+      { year: 2021, ages: [71.3] },
+      { year: 2022, ages: [71.3] }
+    ]
+  },
+  {
+    country: "Singapore",
+    years: [
+      { year: 2013, ages: [80.1] },
+      { year: 2014, ages: [80.3] },
+      { year: 2015, ages: [80.5] },
+      { year: 2016, ages: [80.7] },
+      { year: 2017, ages: [80.9] },
+      { year: 2018, ages: [81.2] },
+      { year: 2019, ages: [81.4] },
+      { year: 2020, ages: [81.3] },
+      { year: 2021, ages: [80.8] },
+      { year: 2022, ages: [80.7] }
+    ]
+  },
+  {
+    country: "Thailand",
+    years: [
+      { year: 2013, ages: [] },
+      { year: 2014, ages: [] },
+      { year: 2015, ages: [] },
+      { year: 2016, ages: [71.2] },
+      { year: 2017, ages: [71.8] },
+      { year: 2018, ages: [72] },
+      { year: 2019, ages: [71.9] },
+      { year: 2020, ages: [72.4] },
+      { year: 2021, ages: [73.5] },
+      { year: 2022, ages: [73.6] }
+    ]
+  },
+  {
+    country: "Vietnam",
+    years: [
+      { year: 2013, ages: [70.5] },
+      { year: 2014, ages: [70.6] },
+      { year: 2015, ages: [70.7] },
+      { year: 2016, ages: [70.8] },
+      { year: 2017, ages: [70.9] },
+      { year: 2018, ages: [70.9] },
+      { year: 2019, ages: [71] },
+      { year: 2020, ages: [71] },
+      { year: 2021, ages: [71.1] },
+      { year: 2022, ages: [71.1] }
+    ]
+  }
 ];
 
 
 
 class RadialChart {
-    constructor(containerId, data, width = 800, height = 600) {
-        this.svg = document.getElementById(containerId);
-        this.data = data;
-        this.width = width;
-        this.height = height;
-        this.centerX = width / 2;
-        this.centerY = height / 2;
-        this.innerRadius = 110;
-        this.outerRadius = Math.min(width, height) / 2 - 50;
-        this.segmentAngle = (2 * Math.PI) / data.length;
-        this.yearRadius = (this.outerRadius - this.innerRadius) / 10; // 10 years
-        this.gapAngle = Math.PI / 180 * 5;
-        this.tooltip = document.querySelector('.tooltip');
-        
-        this.init();
-    }
+  constructor(containerId, data, width = 800, height = 600) {
+    this.svg = document.getElementById(containerId);
+    this.data = data;
+    this.width = width;
+    this.height = height;
+    this.centerX = width / 2;
+    this.centerY = height / 2;
+    this.innerRadius = 110;
+    this.outerRadius = Math.min(width, height) / 2 - 50;
+    this.segmentAngle = (2 * Math.PI) / data.length;
+    this.yearRadius = (this.outerRadius - this.innerRadius) / 10; // 10 years
+    this.gapAngle = Math.PI / 180 * 5;
+    this.tooltip = document.querySelector('.tooltip');
 
-    getColor(value) {
-        if (!value) return '#eee';
-        const minValue = 70;
-        const maxValue = 82;
-        const hue = ((value - minValue) / (maxValue - minValue)) * 120;
-        return `hsl(${hue}, 70%, 50%)`;
-    }
+    this.init();
+  }
 
-    polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-        const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
-        return {
-            x: centerX + (radius * Math.cos(angleInRadians)),
-            y: centerY + (radius * Math.sin(angleInRadians))
-        };
-    }
+  getColor(value) {
+    if (!value) return '#eee';
+    const minValue = 70;
+    const maxValue = 82;
+    const hue = ((value - minValue) / (maxValue - minValue)) * 120;
+    return `hsl(${hue}, 70%, 50%)`;
+  }
 
-    describeArc(x, y, innerRadius, outerRadius, startAngle, endAngle) {
-        const start = this.polarToCartesian(x, y, outerRadius, endAngle);
-        const end = this.polarToCartesian(x, y, outerRadius, startAngle);
-        const innerStart = this.polarToCartesian(x, y, innerRadius, endAngle);
-        const innerEnd = this.polarToCartesian(x, y, innerRadius, startAngle);
-        
-        const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-        
-        return [
-            "M", start.x, start.y,
-            "A", outerRadius, outerRadius, 0, largeArcFlag, 0, end.x, end.y,
-            "L", innerEnd.x, innerEnd.y,
-            "A", innerRadius, innerRadius, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
-            "L", start.x, start.y
-        ].join(" ");
-    }
+  polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+    const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+    return {
+      x: centerX + (radius * Math.cos(angleInRadians)),
+      y: centerY + (radius * Math.sin(angleInRadians))
+    };
+  }
 
-    createSegment(country, yearData, countryIndex, yearIndex) {
-        if (yearData.ages.length === 0) return null;
+  describeArc(x, y, innerRadius, outerRadius, startAngle, endAngle) {
+    const start = this.polarToCartesian(x, y, outerRadius, endAngle);
+    const end = this.polarToCartesian(x, y, outerRadius, startAngle);
+    const innerStart = this.polarToCartesian(x, y, innerRadius, endAngle);
+    const innerEnd = this.polarToCartesian(x, y, innerRadius, startAngle);
 
-        const value = yearData.ages[0];
-        const startAngle = countryIndex * this.segmentAngle * 180 / Math.PI;
-        const endAngle = (countryIndex + 1) * this.segmentAngle * 180 / Math.PI;
-        const radius = this.innerRadius + yearIndex * this.yearRadius;
+    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
 
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", this.describeArc(
-            this.centerX,
-            this.centerY,
-            radius,
-            radius + this.yearRadius - 2,
-            startAngle,
-            endAngle
-        ));
-        path.setAttribute("fill", this.getColor(value));
-        path.setAttribute("opacity", "0.8");
+    return [
+      "M", start.x, start.y,
+      "A", outerRadius, outerRadius, 0, largeArcFlag, 0, end.x, end.y,
+      "L", innerEnd.x, innerEnd.y,
+      "A", innerRadius, innerRadius, 0, largeArcFlag, 1, innerStart.x, innerStart.y,
+      "L", start.x, start.y
+    ].join(" ");
+  }
 
-        // Add event listeners
-        path.addEventListener('mouseover', (e) => {
-            path.setAttribute("opacity", "1");
-            this.tooltip.style.opacity = "1";
-            this.tooltip.innerHTML = `
+  createSegment(country, yearData, countryIndex, yearIndex) {
+    if (yearData.ages.length === 0) return null;
+
+    const value = yearData.ages[0];
+    const startAngle = countryIndex * this.segmentAngle * 180 / Math.PI;
+    const endAngle = (countryIndex + 1) * this.segmentAngle * 180 / Math.PI;
+    const radius = this.innerRadius + yearIndex * this.yearRadius;
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", this.describeArc(
+      this.centerX,
+      this.centerY,
+      radius,
+      radius + this.yearRadius - 2,
+      startAngle,
+      endAngle
+    ));
+    path.setAttribute("fill", this.getColor(value));
+    path.setAttribute("opacity", "0.8");
+
+    // Add event listeners
+    path.addEventListener('mouseover', (e) => {
+      path.setAttribute("opacity", "1");
+      this.tooltip.style.opacity = "1";
+      this.tooltip.innerHTML = `
                 <strong>${country}</strong><br>
                 ${yearData.year}: ${value} years
             `;
-            this.tooltip.style.left = (e.pageX + 10) + 'px';
-            this.tooltip.style.top = (e.pageY - 10) + 'px';
-        });
+      this.tooltip.style.left = (e.pageX + 10) + 'px';
+      this.tooltip.style.top = (e.pageY - 10) + 'px';
+    });
 
-        path.addEventListener('mousemove', (e) => {
-            this.tooltip.style.left = (e.pageX + 10) + 'px';
-            this.tooltip.style.top = (e.pageY - 10) + 'px';
-        });
+    path.addEventListener('mousemove', (e) => {
+      this.tooltip.style.left = (e.pageX + 10) + 'px';
+      this.tooltip.style.top = (e.pageY - 10) + 'px';
+    });
 
-        path.addEventListener('mouseout', () => {
-            path.setAttribute("opacity", "0.8");
-            this.tooltip.style.opacity = "0";
-        });
+    path.addEventListener('mouseout', () => {
+      path.setAttribute("opacity", "0.8");
+      this.tooltip.style.opacity = "0";
+    });
 
-        return path;
-    }
+    return path;
+  }
 
-    createLabel(country, index) {
-        const angle = index * this.segmentAngle + this.segmentAngle / 2;
-        const radius = this.outerRadius + 45;
-        const x = this.centerX + radius * Math.cos(angle - Math.PI / 2);
-        const y = this.centerY + radius * Math.sin(angle - Math.PI / 2);
+  createLabel(country, index) {
+    const angle = index * this.segmentAngle + this.segmentAngle / 2;
+    const radius = this.outerRadius + 45;
+    const x = this.centerX + radius * Math.cos(angle - Math.PI / 2);
+    const y = this.centerY + radius * Math.sin(angle - Math.PI / 2);
 
-        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        text.setAttribute("x", x);
-        text.setAttribute("y", y);
-        text.setAttribute("text-anchor", "middle");
-        text.setAttribute("dominant-baseline", "middle");
-        text.setAttribute("font-size", "13");
-        text.setAttribute("font-weight", "bold");
-        text.setAttribute("fill", "#333");
-        text.textContent = country;
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x);
+    text.setAttribute("y", y);
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("dominant-baseline", "middle");
+    text.setAttribute("font-size", "13");
+    text.setAttribute("font-weight", "bold");
+    text.setAttribute("fill", "#333");
+    text.textContent = country;
 
-        return text;
-    }
+    return text;
+  }
 
-    createLegend() {
-        // Create legend group inside the inner radius
-        const legendGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
-        const ranges = [
-            { min: 50, max: 60, label: "Under 60 years" },
-            { min: 61, max: 63, label: "61 - 63 Years" },
-            { min: 64, max: 66, label: "64 - 66 Years" },
-            { min: 67, max: 70, label: "67 - 70 Years" },
-            { min: 71, max: 73, label: "71 - 73 Years" },
-            { min: 74, max: 77, label: "74 - 77 Years" },
-            { min: 78, max: 85, label: "78 Years and Over" }
-        ];
+  createLegend() {
+    // Create legend group inside the inner radius
+    const legendGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    const ranges = [
+      { min: 50, max: 60, label: "Under 60 years" },
+      { min: 61, max: 63, label: "61 - 63 Years" },
+      { min: 64, max: 66, label: "64 - 66 Years" },
+      { min: 67, max: 70, label: "67 - 70 Years" },
+      { min: 71, max: 73, label: "71 - 73 Years" },
+      { min: 74, max: 77, label: "74 - 77 Years" },
+      { min: 78, max: 85, label: "78 Years and Over" }
+    ];
 
-        const offsetX = this.centerX - 80; // Offset for vertical alignment
-        let offsetY = this.centerY - 100; // Start position for the first legend item
+    const offsetX = this.centerX - 80; // Offset for vertical alignment
+    let offsetY = this.centerY - 100; // Start position for the first legend item
 
-        // Create legend vertically
-        ranges.forEach(range => {
-            const legendItem = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    // Create legend vertically
+    ranges.forEach(range => {
+      const legendItem = document.createElementNS("http://www.w3.org/2000/svg", "g");
 
-            const color = this.getColor((range.min + range.max) / 2); // Average value for color
+      const color = this.getColor((range.min + range.max) / 2); // Average value for color
 
-            // Add colored block (rectangular)
-            const colorBlock = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-            colorBlock.setAttribute("x", 340);
-            colorBlock.setAttribute("y", offsetY +25);
-            colorBlock.setAttribute("width", 16);
-            colorBlock.setAttribute("height", 16);
-            colorBlock.setAttribute("fill", color);
-            legendItem.appendChild(colorBlock);
+      // Add colored block (rectangular)
+      const colorBlock = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      colorBlock.setAttribute("x", 340);
+      colorBlock.setAttribute("y", offsetY + 25);
+      colorBlock.setAttribute("width", 16);
+      colorBlock.setAttribute("height", 16);
+      colorBlock.setAttribute("fill", color);
+      legendItem.appendChild(colorBlock);
 
-            // Add label text
-            const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            text.setAttribute("x", offsetX + 40); // Positioned next to the block
-            text.setAttribute("y", offsetY + 35); // Vertically aligned with the block
-            text.setAttribute("font-size", "12");
-            text.setAttribute("fill", "#333");
-            text.textContent = range.label;
-            legendItem.appendChild(text);
+      // Add label text
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", offsetX + 40); // Positioned next to the block
+      text.setAttribute("y", offsetY + 35); // Vertically aligned with the block
+      text.setAttribute("font-size", "12");
+      text.setAttribute("fill", "#333");
+      text.textContent = range.label;
+      legendItem.appendChild(text);
 
-            legendGroup.appendChild(legendItem);
+      legendGroup.appendChild(legendItem);
 
-            // Update vertical position for the next legend item
-            offsetY += 22;
-        });
+      // Update vertical position for the next legend item
+      offsetY += 22;
+    });
 
-        this.svg.appendChild(legendGroup);
-    }
+    this.svg.appendChild(legendGroup);
+  }
 
-    init() {
-        // Clear existing content
-        this.svg.innerHTML = '';
+  init() {
+    // Clear existing content
+    this.svg.innerHTML = '';
 
-        // Add background circle
-        const background = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        background.setAttribute("cx", this.centerX);
-        background.setAttribute("cy", this.centerY);
-        background.setAttribute("r", this.outerRadius);
-        background.setAttribute("fill", "#f8f8f8");
-        this.svg.appendChild(background);
+    // Add background circle
+    const background = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    background.setAttribute("cx", this.centerX);
+    background.setAttribute("cy", this.centerY);
+    background.setAttribute("r", this.outerRadius);
+    background.setAttribute("fill", "#f8f8f8");
+    this.svg.appendChild(background);
 
-        // Create segments
-        this.data.forEach((country, countryIndex) => {
-            country.years.forEach((yearData, yearIndex) => {
-                const segment = this.createSegment(country.country, yearData, countryIndex, yearIndex);
-                if (segment) {
-                    this.svg.appendChild(segment);
-                }
-            });
-            
-            // Add country label
-            const label = this.createLabel(country.country, countryIndex);
-            this.svg.appendChild(label);
-        });
+    // Create segments
+    this.data.forEach((country, countryIndex) => {
+      country.years.forEach((yearData, yearIndex) => {
+        const segment = this.createSegment(country.country, yearData, countryIndex, yearIndex);
+        if (segment) {
+          this.svg.appendChild(segment);
+        }
+      });
 
-        // Create center circle
-        const centerCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        centerCircle.setAttribute("cx", this.centerX);
-        centerCircle.setAttribute("cy", this.centerY);
-        centerCircle.setAttribute("r", this.innerRadius);
-        centerCircle.setAttribute("fill", "white");
-        centerCircle.setAttribute("stroke", "#ccc");
-        this.svg.appendChild(centerCircle);
+      // Add country label
+      const label = this.createLabel(country.country, countryIndex);
+      this.svg.appendChild(label);
+    });
 
-        // Create legend inside the inner radius
-        this.createLegend();
-    }
+    // Create center circle
+    const centerCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    centerCircle.setAttribute("cx", this.centerX);
+    centerCircle.setAttribute("cy", this.centerY);
+    centerCircle.setAttribute("r", this.innerRadius);
+    centerCircle.setAttribute("fill", "white");
+    centerCircle.setAttribute("stroke", "#ccc");
+    this.svg.appendChild(centerCircle);
+
+    // Create legend inside the inner radius
+    this.createLegend();
+  }
 }
 
 // Initialize the chart
 const chart = new RadialChart('chart', data);
-=======
+
 var RadarChart = {
   draw: function (id, d, options) {
     var cfg = {
@@ -573,4 +573,3 @@ var RadarChart = {
       .style('font-size', '13px');
   }
 };
->>>>>>> Stashed changes
