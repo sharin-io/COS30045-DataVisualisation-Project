@@ -1,6 +1,6 @@
 // Life expectancy data (Total) for the years 2013-2022
 const countries = [
-    "Brunei Darussalam", "Cambodia", "Indonesia", "Lao", "Malaysia",
+    "Brunei", "Cambodia", "Indonesia", "Lao", "Malaysia",
     "Myanmar", "Philippines", "Singapore", "Thailand", "Vietnam"
 ];
 
@@ -17,7 +17,6 @@ const data = [
     [73.1, 73.2, 73.3, 73.4, 73.5, 73.5, 73.6, 73.7, 73.6, 73.6] // Vietnam
 ];
 
-// Prepare the data: Flatten the data into an array of objects (each with a country, year, and life expectancy value)
 const years = ["2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"];
 const formattedData = [];
 
@@ -33,20 +32,17 @@ countries.forEach((country, i) => {
     });
 });
 
-// Dimensions and margins for the chart
 const width = 1000;
 const height = 600;
-const margin = { top: 50, right: 20, bottom: 80, left: 120 }; // Increased left margin
+const margin = { top: 50, right: 25, bottom: 50, left: 100 };
 
-// Select the div where the heatmap will be appended
-const svg = d3.select("#life-expectancy-chart")  // Target the existing div with this ID
+const svg = d3.select("#life-expectancy-chart")
     .append("svg")
     .attr("viewBox", [0, 0, width, height])
     .attr("width", width)
     .attr("height", height)
     .attr("style", "max-width: 100%; height: auto;");
 
-// Define scales for the axes
 const x = d3.scaleBand()
     .domain(years)
     .range([margin.left, width - margin.right])
@@ -57,11 +53,20 @@ const y = d3.scaleBand()
     .range([margin.top, height - margin.bottom])
     .padding(0.05);
 
-// Define a red color scale (for heatmap coloring)
 const color = d3.scaleSequential(d3.interpolateReds)
     .domain([d3.min(formattedData, d => d.LifeExpectancy), d3.max(formattedData, d => d.LifeExpectancy)]);
 
-// Create and append the rectangles for the heatmap
+const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("opacity", 0)
+    .style("background-color", "#fff")
+    .style("border", "1px solid #ddd")
+    .style("padding", "7px")
+    .style("border-radius", "5px")
+    .style("box-shadow", "0 2px 5px rgba(0, 0, 0, 0.2)");
+
 svg.selectAll(".cell")
     .data(formattedData)
     .enter().append("rect")
@@ -71,14 +76,14 @@ svg.selectAll(".cell")
     .attr("width", x.bandwidth())
     .attr("height", y.bandwidth())
     .attr("fill", d => color(d.LifeExpectancy))
-    .on("mouseover", function (event, d) {
+    .on("mouseover", function(event, d) {
         d3.select(this).attr("stroke", "#000").attr("stroke-width", 1);
-        tooltip.transition().duration(200).style("opacity", .9);
+        tooltip.transition().duration(700).style("opacity", .9);
         tooltip.html(`Country: ${d.Country}<br>Year: ${d.Year}<br>Life Expectancy: ${d.LifeExpectancy}`)
             .style("left", `${event.pageX + 5}px`)
             .style("top", `${event.pageY - 28}px`);
     })
-    .on("mouseout", function () {
+    .on("mouseout", function(event, d) {
         d3.select(this).attr("stroke", "none");
         tooltip.transition().duration(500).style("opacity", 0);
     });
@@ -91,6 +96,9 @@ svg.append("g")
     .style("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-family", "Arial")
+    .attr("x", 10)
+    .attr("y", 20)
+    .style("font-weight", "bold")
     .attr("dx", "-.8em")
     .attr("dy", ".15em");
 
@@ -101,8 +109,11 @@ svg.append("g")
     .selectAll("text")
     .style("font-size", "12px")
     .style("font-family", "Arial")
-    .attr("transform", "rotate(-45)") // Rotate the text for better readability
-    .attr("text-anchor", "end"); // Align text to the end of the label (rotated)
+    .attr("x", -15)
+    .attr("y", -10)
+    .style("font-weight", "bold")
+    .attr("transform", "rotate(-25)")
+    .attr("text-anchor", "end");
 
 // Add title
 svg.append("text")
@@ -111,15 +122,4 @@ svg.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "20px")
     .style("font-weight", "bold")
-    .text("Total Life Expectancy Across ASEAN Countries (2013-2022)");
-
-// Add tooltips
-const tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("position", "absolute")
-    .style("opacity", 0)
-    .style("background-color", "#fff")
-    .style("border", "1px solid #ddd")
-    .style("padding", "10px")
-    .style("border-radius", "5px")
-    .style("box-shadow", "0 2px 5px rgba(0, 0, 0, 0.2)");
+    .text("Total Life Expectancy Across ASEAN Countries (2013 - 2022)");
