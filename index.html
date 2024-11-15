@@ -10,6 +10,9 @@
     <meta name="keywords" content="Data Visualisation, HTML, CSS, JavaScript" />
 
     <link rel="stylesheet" href="style/card.css">
+    <link rel="stylesheet" href="style/lifeExpectancy.css">
+    <link rel="stylesheet" href="style/birthrate.css">
+    <link rel="stylesheet" href="style/population.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <!-- script -->
@@ -71,13 +74,13 @@
 
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Population</h2>
-                        <data class="text-3xl font-bold text-green-600" id="total-population" value="660">660M</data>
+                        <data class="text-3xl font-bold text-green-600" id="total-population" value="675">675M</data>
                         <p class="text-sm text-gray-600">Total ASEAN</p>
                     </article>
 
                     <article class="metric-card">
                         <h2 class="text-lg font-semibold mb-2">Demographics</h2>
-                        <data class="text-3xl font-bold text-purple-600" id="birth-rate" value="00.0">00.0M</data>
+                        <data class="text-3xl font-bold text-purple-600" id="birth-rate" value="19.5">19.5M</data>
                         <p class="text-sm text-gray-600">Birth Rate</p>
                     </article>
                 </section>
@@ -89,63 +92,38 @@
             <div class="max-w-7xl mx-auto px-4">
                 <h2 id="viz-title" class="text-2xl font-bold mb-8">Interactive Visualizations</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <article class="visualization-card p-6 mt-5">
-                        <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
-                        <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN countries
-                            from 2013 to 2022 with this interactive heatmap.</p>
-                        <figure class="chart-container" aria-label="Life Expectancy Heatmap">
-                            <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries from
-                                2013 to 2022</figcaption>
-                            <div id="life-expectancy-chart" class="w-full h-50"></div>
-                        </figure>
-                    </article>
-
-                    <a href="html/Population.html">
-                        <article class="visualization-card p-6 mt-8">
-                            <h3 class="text-lg font-semibold mb-4">Population Growth of ASEAN Countries (2003-2023)</h3>
-                            <p class="text-gray-600 mb-4">Explore the population growth trends across ASEAN countries
-                                from 2003 to 2023 with this interactive bubble chart.</p>
-                            <figure class="chart-container" aria-label="Population Growth Bubble Chart">
-                                <figcaption class="sr-only">Bubble chart showing population growth trends for ASEAN
-                                    countries from 2003 to 2023</figcaption>
-                                <div id="population"></div>
+                    <a href="html/LifeExpectancyTotal.html">
+                        <article class="visualization-card p-6 mt-5">
+                            <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
+                            <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN
+                                countries
+                                from 2013 to 2022 with this interactive heatmap.</p>
+                            <figure class="chart-container" aria-label="Life Expectancy Heatmap">
+                                <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries
+                                    from
+                                    2013 to 2022</figcaption>
+                                <div id="LET" class="w-full h-50"></div>
                             </figure>
                         </article>
                     </a>
+                    <a href="html/Population.html">
+                        <article class="visualization-card p-6 mt-8">
+                            <h3 class="text-lg font-semibold mb-4">Population Growth in ASEAN Nations (2003-2023)</h3>
+                            <p class="text-gray-600 mb-4">Explore the population growth trends across ASEAN countries
+                                from 2003 to 2023 with this interactive bubble chart. Hover over the countries to
+                                uncover insights about population size and growth rates.</p>
+
+                            <figure class="chart-container" aria-label="Population Growth Bubble Chart">
+                                <figcaption class="sr-only">Interactive bubble chart showing population growth trends
+                                    for ASEAN countries from 2003 to 2023</figcaption>
+
+                                <!-- Visualization Container -->
+                                <div id="visualization"></div>
+                            </figure>
+                        </article>
+                    </a>
+
                 </div>
-            </div>
-        </section> <!-- Data Explorer -->
-        <section id="explorer" aria-labelledby="explorer-title" class="py-12 bg-white">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 id="explorer-title" class="text-2xl font-bold mb-8">Data Explorer</h2>
-
-                <form class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" role="search">
-                    <fieldset class="p-4 bg-gray-50 rounded-lg">
-                        <legend class="text-sm font-medium text-gray-700 mb-2">Time Period</legend>
-                        <select class="w-full p-2 border rounded" id="time-filter" aria-label="Select time period">
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                        </select>
-                    </fieldset>
-
-                    <fieldset class="p-4 bg-gray-50 rounded-lg">
-                        <legend class="text-sm font-medium text-gray-700 mb-2">Metrics</legend>
-                        <select class="w-full p-2 border rounded" id="metric-filter" aria-label="Select metric type">
-                            <option value="life_expectancy">Life Expectancy</option>
-                            <option value="population">Population</option>
-                            <option value="health_index">Health Index</option>
-                        </select>
-                    </fieldset>
-                </form>
-
-                <article class="visualization-card p-4">
-                    <figure class="chart-container" id="explorer-chart" aria-label="Dynamic data visualization">
-                        <figcaption class="sr-only">Interactive chart displaying selected metrics and time periods
-                        </figcaption>
-
-                    </figure>
-                </article>
             </div>
         </section>
         <!-- Gender Analysis Section -->
@@ -166,7 +144,10 @@
                             <figcaption class="sr-only">Rader chart showing life-expectancy of Male for ASEAN
                                 countries from 2003 to
                                 2023</figcaption>
-                            <div id="male-radar-chart"></div>
+                            <div class="chart-container">
+                                <svg width="100%" height="600" id="chart"></svg>
+                                <div class="tooltip"></div>
+                            </div>
 
                         </figure>
                     </article>
@@ -185,7 +166,7 @@
                             <figcaption class="sr-only">Line chart showing life-expectancy of Female for ASEAN
                                 countries from 2003 to
                                 2023</figcaption>
-                            <div id="female-line-chart"></div>
+                            <div id="LEF"></div>
 
                         </figure>
                     </article>
@@ -196,28 +177,48 @@
         <!-- Insights Section -->
         <section id="insights" aria-labelledby="insights-title" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4">
-                <h2 id="insights-title" class="text-2xl font-bold mb-8">Key Insights</h2>
+                <h2 id="insights-title" class="text-2xl font-bold mb-8 text-center text-gray-800">Key Insights</h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <article class="visualization-card p-6">
-                        <h3 class="text-lg font-semibold mb-4">Regional Patterns</h3>
-                        <p class="text-gray-600 mb-4">Analysis of health trends across ASEAN nations reveals significant
-                            patterns in healthcare development and demographic transitions.</p>
-                        <figure class="chart-container" id="patterns-chart"
-                            aria-label="Regional patterns visualization">
-                            <figcaption class="sr-only">Chart showing regional health patterns and trends</figcaption>
-                        </figure>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Regional Patterns Insight -->
+                    <article
+                        class="visualization-card p-8 bg-white shadow-lg rounded-lg transition-transform hover:scale-105">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-700">Regional Patterns in ASEAN Health Data</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Over the past three decades (1990–2023), ASEAN nations have witnessed diverse health trends.
+                            While Singapore consistently excels in healthcare quality, countries like Myanmar still face
+                            barriers like limited infrastructure and accessibility.
+                        </p>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Key progress has been seen in Malaysia and Thailand, where targeted policies have improved
+                            life expectancy for women, showcasing the importance of gender-focused health strategies.
+                            However, challenges persist in balancing birth rates with available resources in rural
+                            regions.
+                        </p>
+                        <p class="font-medium text-gray-700">
+                            Key Finding: Regional disparities highlight the need for scalable healthcare models
+                            tailored to diverse economic and social contexts.
+                        </p>
                     </article>
 
-                    <article class="visualization-card p-6">
-                        <h3 class="text-lg font-semibold mb-4">Future Implications</h3>
-                        <p class="text-gray-600 mb-4">Projected health trends and their potential impact on healthcare
-                            systems across Southeast Asia.</p>
-                        <figure class="chart-container" id="implications-chart"
-                            aria-label="Future implications visualization">
-                            <figcaption class="sr-only">Chart showing projected health trends and implications
-                            </figcaption>
-                        </figure>
+                    <!-- Future Implications Insight -->
+                    <article
+                        class="visualization-card p-8 bg-white shadow-lg rounded-lg transition-transform hover:scale-105">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-700">Future Implications of Health Trends</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            By 2035, an aging population will redefine healthcare priorities across Southeast Asia.
+                            Nations like Thailand and Vietnam are projected to see over 25% of their populations aged 60
+                            or older, emphasizing the urgent need for geriatric care infrastructure.
+                        </p>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Urbanization and technological advancements present opportunities to integrate telemedicine,
+                            AI-driven diagnostics, and preventive care, ensuring accessible healthcare for both urban
+                            and rural communities.
+                        </p>
+                        <p class="font-medium text-gray-700">
+                            Key Finding: Proactive investments in healthcare innovation and sustainability will be
+                            critical to navigating these demographic shifts.
+                        </p>
                     </article>
                 </div>
             </div>
