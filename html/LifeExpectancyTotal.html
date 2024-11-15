@@ -1,60 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="ASEAN Health Visualization Dashboard exploring health metrics and demographic patterns across Southeast Asian nations">
-    <meta name="author" content="SHIN THANT THI RI, YADANAR THEINT">
-    <meta name="keywords" content="Data Visualisation, HTML, CSS, JavaScript" />
+        content="ASEAN Total Life Expectancy Dashboard exploring health trends across Southeast Asia">
+    <title>ASEAN Total Life Expectancy Visualization</title>
 
-    <link rel="stylesheet" href="style/card.css">
+    <!-- Link to CSS for consistent styling -->
+    <link rel="stylesheet" href="../style/lifeExpectancy.css">
 
+    <!-- D3.js library for interactive visualization -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-
-    <!-- Linking the JavaScript File for Life Expectancy Chart -->
-    <script type="module" src="../script/LifeExpectancyTotal.js"></script>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-
-    <title>ASEAN Life Expectancy Trends</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f1f1f1;
-        }
-
-        #life-expectancy-chart {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            background-color: white;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Life Expectancy Heatmap Section (Ensure a unique ID here) -->
-    <article class="visualization-card p-6 mt-8">
-        <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
-        <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN countries from 2013 to 2022
-            with this interactive heatmap.</p>
-        <figure class="chart-container" id="life-expectancy-heatmap" aria-label="Life Expectancy Heatmap">
-            <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries from
-                2013 to 2022</figcaption>
-            <!-- Ensure the heatmap chart renders in this div -->
-            <div id="life-expectancy-chart"></div>
-        </figure>
-    </article>
+    <!-- Main Container -->
+    <div class="container">
 
+        <!-- Introduction Alert -->
+        <div id="intro-alert" class="alert">
+            <div class="alert-icon">ℹ️</div>
+            <p>Explore trends in total life expectancy across ASEAN countries. Hover over countries to view individual
+                life expectancy rates.</p>
+            <button class="close-btn" onclick="closeIntro()">×</button>
+        </div>
+
+        <!-- Main Visualization Card -->
+        <div class="card">
+            <div class="card-header">
+                <h1>Total Life Expectancy in ASEAN Nations</h1>
+                <p class="subtitle">An interactive exploration of life expectancy rates</p>
+            </div>
+
+            <div class="card-content">
+
+                <!-- Visualization Container -->
+                <div id="LET"></div>
+
+                <!-- Insight Panel -->
+                <div id="insight-panel" class="insight-panel hidden">
+                    <h3 class="insight-title">Regional Highlights</h3>
+                    <p class="insight-content">Key trends and observations will display here based on user interaction.
+                    </p>
+                </div>
+
+                <!-- Key Observations -->
+                <div class="observations">
+                    <h3>Key Observations</h3>
+                    <ul>
+                        <li>Singapore continues to lead with one of the highest life expectancy rates in ASEAN.</li>
+                        <li>Countries like Vietnam and Thailand show steady growth in life expectancy.</li>
+                        <li>Some nations still face challenges, but health improvements are observed in several regions.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Legend Section -->
+                <div class="legend">
+                    <h3>Life Expectancy Categories</h3>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #fcb4b4;"></span>
+                        <span>Below 70 years</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #e57373;"></span>
+                        <span>70 - 75 years</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #d32f2f;"></span>
+                        <span>Above 75 years</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Visualization and Alert Close Function -->
+    <script src="../script/LifeExpectancyTotal.js"></script>
+    <script>
+        function closeIntro() {
+            document.getElementById("intro-alert").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

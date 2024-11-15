@@ -15,6 +15,8 @@
     <!-- script -->
     <script type="module" src="script/LifeExpectFemale.js"></script>
     <script type="module" src="script/LifeExpectancyTotal.js"></script>
+    <script type="module" src="script/LifeExpectMale.js"></script>
+    <script type="module" src="script/BirthRate.js"></script>
     <script type="module" src="script/Population.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -87,45 +89,32 @@
             <div class="max-w-7xl mx-auto px-4">
                 <h2 id="viz-title" class="text-2xl font-bold mb-8">Interactive Visualizations</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- Life Expectancy Heatmap Section -->
-                    <a href="html/LifeExpectancyTotal.html">
-                        <article class="visualization-card p-5 mt-8">
-                            <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
-                            <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN
-                                countries
-                                from 2013 to 2022 with this interactive heatmap.</p>
-                            <figure class="chart-container" aria-label="Life Expectancy Heatmap">
-                                <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries
-                                    from
-                                    2013 to 2022</figcaption>
-                                <div id="life-expectancy-chart" class="w-full h-96"></div>
+                    <article class="visualization-card p-6 mt-5">
+                        <h3 class="text-lg font-semibold mb-4">Life Expectancy Heatmap (2013-2022)</h3>
+                        <p class="text-gray-600 mb-4">Explore the variations in life expectancy across ASEAN countries
+                            from 2013 to 2022 with this interactive heatmap.</p>
+                        <figure class="chart-container" aria-label="Life Expectancy Heatmap">
+                            <figcaption class="sr-only">Heatmap showing life expectancy trends for ASEAN countries from
+                                2013 to 2022</figcaption>
+                            <div id="life-expectancy-chart" class="w-full h-50"></div>
+                        </figure>
+                    </article>
 
-                            </figure>
-                        </article>
-                    </a>
-
-                    <!-- Population Growth Bubble Chart Section-->
-                    <a href="html/population.html">
+                    <a href="html/Population.html">
                         <article class="visualization-card p-6 mt-8">
                             <h3 class="text-lg font-semibold mb-4">Population Growth of ASEAN Countries (2003-2023)</h3>
                             <p class="text-gray-600 mb-4">Explore the population growth trends across ASEAN countries
-                                from
-                                2003 to 2023 with
-                                this interactive bubble chart.</p>
+                                from 2003 to 2023 with this interactive bubble chart.</p>
                             <figure class="chart-container" aria-label="Population Growth Bubble Chart">
                                 <figcaption class="sr-only">Bubble chart showing population growth trends for ASEAN
-                                    countries from 2003 to
-                                    2023</figcaption>
-                                <div id="my_dataviz"></div>
-
+                                    countries from 2003 to 2023</figcaption>
+                                <div id="population"></div>
                             </figure>
                         </article>
                     </a>
-
                 </div>
             </div>
-        </section>
-        <!-- Data Explorer -->
+        </section> <!-- Data Explorer -->
         <section id="explorer" aria-labelledby="explorer-title" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 id="explorer-title" class="text-2xl font-bold mb-8">Data Explorer</h2>

@@ -122,8 +122,8 @@ const data = {
     ]
 };
 
-// Set up dimensions with more right margin for labels
-const margin = { top: 50, right: 150, bottom: 50, left: 150 };
+// Adjust margin for centering
+const margin = { top: 50, right: 50, bottom: 50, left: 150 }; // Left margin ensures spacing
 const width = 1200 - margin.left - margin.right;
 const height = 700 - margin.top - margin.bottom;
 
@@ -134,6 +134,7 @@ const svg = d3.select("#LEF")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
+
 
 // Set up scales
 const x = d3.scaleLinear()

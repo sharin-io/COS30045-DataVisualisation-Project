@@ -4,25 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Population Growth (Area Chart)</title>
-    <link rel="stylesheet" href="../style/card.css">
+    <meta name="description"
+        content="ASEAN Population Visualization Dashboard exploring demographic patterns across Southeast Asian nations">
+    <title>ASEAN Population Visualization</title>
+
+    <!-- Linking CSS for consistent styling -->
+    <link rel="stylesheet" href="../style/population.css">
+
+    <!-- D3.js library for interactive visualization -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script type="module" src="../script/Population.js"></script>
 </head>
 
 <body>
-    <!-- Population Growth Bubble Chart Section (Ensure a unique ID here) -->
-    <article class="visualization-card p-6 mt-8">
-        <h3 class="text-lg font-semibold mb-4">Population Growth of ASEAN Countries (2003-2023)</h3>
-        <p class="text-gray-600 mb-4">Explore the population growth trends across ASEAN countries from 2003 to 2023 with
-            this interactive bubble chart.</p>
-        <figure class="chart-container" aria-label="Population Growth Bubble Chart">
-            <figcaption class="sr-only">Bubble chart showing population growth trends for ASEAN countries from 2003 to
-                2023</figcaption>
-            <div id="my_dataviz"></div>
+    <!-- Main Container -->
+    <div class="container">
 
-        </figure>
-    </article>
+        <!-- Introduction Alert -->
+        <div id="intro-alert" class="alert">
+            <div class="alert-icon">ℹ️</div>
+            <p>Explore ASEAN's population dynamics through this interactive visualization.
+                Hover over regions to uncover insights about population distribution and growth rates.</p>
+            <button class="close-btn" onclick="closeIntro()">×</button>
+        </div>
+
+        <!-- Main Visualization Card -->
+        <div class="card">
+            <div class="card-header">
+                <h1>Population Distribution in ASEAN Nations</h1>
+                <p class="subtitle">Interactive visualization of population dynamics</p>
+            </div>
+
+            <div class="card-content">
+
+                <!-- Visualization Container -->
+                <div id="visualization"></div>
+
+                <!-- Insight Panel -->
+                <div id="insight-panel" class="insight-panel hidden">
+                    <h3 class="insight-title">Regional Highlights</h3>
+                    <p class="insight-content">Key trends and observations will display here based on user interaction.
+                    </p>
+                </div>
+
+                <!-- Key Observations -->
+                <div class="observations">
+                    <h3>Key Observations</h3>
+                    <ul>
+                        <li>Population size is represented by circle area</li>
+                        <li>Darker shades indicate higher population density</li>
+                        <li>Growth rates vary significantly across the region</li>
+                        <li>Singapore shows the highest growth rate despite a smaller population</li>
+                    </ul>
+                </div>
+
+                <!-- Legend Section -->
+                <div class="legend">
+                    <h3>Population Categories</h3>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #89CFF0;"></span>
+                        <span>Low population density</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #1E90FF;"></span>
+                        <span>Moderate population density</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background-color: #0000CD;"></span>
+                        <span>High population density</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Visualization and Alert Close Function -->
+    <script src="../script/Population.js"></script>
+    <script>
+        function closeIntro() {
+            document.getElementById("intro-alert").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

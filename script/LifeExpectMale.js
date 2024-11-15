@@ -360,7 +360,7 @@ class RadialChart {
 }
 
 // Initialize the chart
-const chart = new RadialChart('chart', data);
+const chart = new RadialChart('LFM', data);
 
 var RadarChart = {
   draw: function (id, d, options) {

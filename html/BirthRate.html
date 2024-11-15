@@ -5,134 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="ASEAN Health Visualization Dashboard exploring health metrics and demographic patterns across Southeast Asian nations">
-    <meta name="author" content="YADANAR THEINT, SHIN THANT THI RI">
-    <meta name="keywords" content="Data Visualisation, HTML, CSS, JavaScript" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <title>ASEAN Birth Rate Map</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+        content="ASEAN Birth Rate Visualization exploring demographic trends in Southeast Asia from 1990 to 2023">
+    <title>ASEAN Birth Rate Visualization</title>
+
+    <!-- Linking CSS for consistent styling -->
+    <link rel="stylesheet" href="../style/birthrate.css">
+
+    <!-- D3.js library for interactive visualization -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <style>
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .controls {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .country {
-            cursor: pointer;
-            transition: fill 0.3s ease;
-        }
-
-        .country.highlight {
-            stroke: #000;
-            stroke-width: 2px;
-        }
-
-        #tooltip {
-            position: absolute;
-            background-color: white;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            pointer-events: none;
-            font-size: 12px;
-            opacity: 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .legend {
-            margin-top: 20px;
-            padding-right: 50px;
-            text-align: left;
-        }
-
-        .year-label {
-            font-size: 18px;
-            margin-right: 10px;
-        }
-
-        #yearSlider {
-            width: 300px;
-            margin: 0 10px;
-        }
-
-        .title {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #2C3E50;
-            font-weight: bold;
-        }
-
-        .error-message {
-            color: red;
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid red;
-            border-radius: 5px;
-        }
-
-        /* ASEAN specific styles */
-        .country[data-id="702"] {
-            /* Singapore */
-            stroke-width: 1.5px !important;
-            z-index: 100;
-        }
-
-        .visualization-container {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .controls input[type="range"] {
-            height: 8px;
-            border-radius: 4px;
-            background: #ddd;
-            outline: none;
-        }
-
-        .controls input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #2C3E50;
-            cursor: pointer;
-        }
-    </style>
 </head>
 
-<body class="bg-gray-50">
+<body>
+    <!-- Main Container -->
     <div class="container">
-        <h1 class="title">ASEAN Birth Rate Map (1990-2023)</h1>
-        <div class="visualization-container">
-            <div class="controls">
-                <span class="year-label">Year:</span>
-                <input type="range" id="yearSlider" min="1990" max="2023" value="2023" step="1">
-                <span id="yearDisplay" class="font-semibold">2023</span>
+
+        <!-- Introduction Alert -->
+        <div id="intro-alert" class="alert">
+            <div class="alert-icon">ℹ️</div>
+            <p>Explore ASEAN's birth rate trends from 1990 to 2023. Use the interactive map to understand how birth
+                rates have evolved across the region.</p>
+            <button class="close-btn" onclick="closeIntro()">×</button>
+        </div>
+
+        <!-- Main Visualization Card -->
+        <div class="card">
+            <div class="card-header">
+                <h1>ASEAN Birth Rate Trends (1990-2023)</h1>
+                <p class="subtitle">Interactive visualization of birth rate dynamics across Southeast Asia</p>
             </div>
-            <svg width="800" height="800"></svg>
-            <div id="tooltip"></div>
-            <div class="legend">
-                <div class="font-semibold mb-2">Birth Rate (per 1,000 people)</div>
-                <svg id="legendSvg" width="400" height="50"></svg>
+
+            <div class="card-content">
+                <!-- Year slider and play button -->
+                <div class="controls">
+                    <label for="yearSlider" class="year-label">Year: <span id="yearDisplay">2023</span></label>
+                    <input type="range" id="yearSlider" min="1990" max="2023" value="2023" class="slider">
+                    <button id="playButton" class="play-btn">Play Animation</button>
+                </div>
+
+                <!-- Map container -->
+                <div class="map-container">
+                    <svg id="map" width="1000" height="700"></svg>
+
+                    <!-- Tooltip -->
+                    <div id="tooltip" class="tooltip"></div>
+
+                    <!-- Legend for color scale -->
+                    <div id="legend" class="legend">
+                        <h3>Birth Rate Categories</h3>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #FFDDC1;"></span>
+                            <span>High birth rate (20+ per 1,000 people)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #FFABAB;"></span>
+                            <span>Moderate birth rate (10-19 per 1,000 people)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #FF7F7F;"></span>
+                            <span>Low birth rate (< 10 per 1,000 people)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight Panel -->
+                <div id="insight-panel" class="insight-panel hidden">
+                    <h3 class="insight-title">Regional Highlights</h3>
+                    <p class="insight-content">Key trends and observations will display here based on user interaction.
+                    </p>
+                </div>
+
+                <!-- Observations -->
+                <div class="observations">
+                    <h3>Key Observations</h3>
+                    <ul>
+                        <li>Higher birth rates are more prevalent in countries with younger populations</li>
+                        <li>Countries like Singapore and Brunei show a steady decline in birth rates</li>
+                        <li>Growth trends differ significantly between urban and rural regions</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
-        <div id="error-container"></div>
     </div>
 
+    <!-- JavaScript for Visualization and Alert Close Function -->
     <script src="../script/BirthRate.js"></script>
+    <script>
+        function closeIntro() {
+            document.getElementById("intro-alert").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

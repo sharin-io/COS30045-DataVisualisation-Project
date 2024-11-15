@@ -36,7 +36,7 @@ const width = 1000;
 const height = 600;
 const margin = { top: 50, right: 25, bottom: 50, left: 100 };
 
-const svg = d3.select("#life-expectancy-chart")
+const svg = d3.select("#LET")
     .append("svg")
     .attr("viewBox", [0, 0, width, height])
     .attr("width", width)
@@ -76,14 +76,14 @@ svg.selectAll(".cell")
     .attr("width", x.bandwidth())
     .attr("height", y.bandwidth())
     .attr("fill", d => color(d.LifeExpectancy))
-    .on("mouseover", function(event, d) {
+    .on("mouseover", function (event, d) {
         d3.select(this).attr("stroke", "#000").attr("stroke-width", 1);
         tooltip.transition().duration(700).style("opacity", .9);
         tooltip.html(`Country: ${d.Country}<br>Year: ${d.Year}<br>Life Expectancy: ${d.LifeExpectancy}`)
             .style("left", `${event.pageX + 5}px`)
             .style("top", `${event.pageY - 28}px`);
     })
-    .on("mouseout", function(event, d) {
+    .on("mouseout", function (event, d) {
         d3.select(this).attr("stroke", "none");
         tooltip.transition().duration(500).style("opacity", 0);
     });
