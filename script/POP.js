@@ -68,9 +68,8 @@ function initializeVisualization() {
     .size([width - padding * 2, height - padding * 2])
     .padding(padding);
 
-  // Process data
   const root = d3.hierarchy(data)
-    .sum(d => d.value)
+    .sum(d => Math.max(0, d.value))
     .sort((a, b) => b.value - a.value);
 
   const nodes = pack(root);
@@ -116,7 +115,7 @@ function initializeVisualization() {
     .attr('fill', d => d.children ? 'url(#circle-gradient)' : colorScale(d.depth))
     .attr('cx', d => d.x)
     .attr('cy', d => d.y)
-    .attr('r', d => d.r)
+    .attr('r', d => Math.max(0, d.r))  // Ensure the radius is never negative
     .style('cursor', 'pointer')
     .style('stroke', d => d.children ? 'none' : '#fff')
     .style('stroke-width', 1)
@@ -169,8 +168,40 @@ function initializeVisualization() {
       }
     });
 
-  // Create legend with enhanced styling
-  createLegend(data.children);
+  function createLegend(categories) {
+    const legendContainer = document.getElementById('legend-items');
+
+    if (!legendContainer) {
+      console.error('Legend container not found!');
+      return;
+    }
+
+    legendContainer.innerHTML = ''; // Clear existing items
+
+    categories.forEach(category => {
+      const item = document.createElement('div');
+      item.className = 'legend-item';
+      item.style.display = 'flex';
+      item.style.alignItems = 'center';
+      item.style.marginBottom = '8px';
+
+      const color = document.createElement('div');
+      color.className = 'legend-color';
+      color.style.background = 'url(#circle-gradient)';
+      color.style.width = '16px';
+      color.style.height = '16px';
+      color.style.borderRadius = '50%';
+      color.style.marginRight = '8px';
+
+      const label = document.createElement('span');
+      label.textContent = `${category.name} (${category.children.length} countries)`;
+      label.style.fontSize = '14px';
+
+      item.appendChild(color);
+      item.appendChild(label);
+      legendContainer.appendChild(item);
+    });
+  }
 }
 function handleMouseOver(event, d) {
   const tooltip = d3.select('.tooltip');
