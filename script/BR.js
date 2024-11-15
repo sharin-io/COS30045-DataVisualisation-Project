@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const legendContainer = d3.select("body")
         .append("div")
         .attr("class", "country-legend")
-        .style("position", "absolute")
+        .style("position", "fixed")
         .style("right", "170px")
         .style("top", "500px")
         .style("max-height", "600px")
