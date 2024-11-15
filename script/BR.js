@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const legendContainer = d3.select("body")
         .append("div")
         .attr("class", "country-legend")
+        .style("position", "absolute")
         .style("overflow-y", "auto")
         .style("background-color", "white")
         .style("padding", "10px")
