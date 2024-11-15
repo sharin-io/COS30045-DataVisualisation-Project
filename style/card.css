@@ -9,6 +9,19 @@
     position: relative
 }
 
+.map-container {
+    text-align: center;
+    /* Centers the map image */
+    max-width: 100%;
+    /* Ensures it scales responsively */
+}
+
+.map-image {
+    width: 100%;
+    /* Makes the map scale with the container */
+    height: auto;
+    /* Maintains the aspect ratio */
+}
 
 .visualization-card {
     background: white;
