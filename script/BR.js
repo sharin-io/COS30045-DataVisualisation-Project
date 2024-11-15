@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             birthRates[countryCode][d.Year] = +d['Birth Rate'];
         });
 
+
         // Create zoom behavior
         const zoom = d3.zoom()
             .scaleExtent([1, 8])
