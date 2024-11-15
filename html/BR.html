@@ -59,11 +59,24 @@
                 <div class="card-content">
                     <!-- Year slider and play button -->
                     <div class="controls">
-                        <label for="yearSlider" class="year-label">Year: <span id="yearDisplay">2023</span></label>
-                        <input type="range" id="yearSlider" min="1990" max="2023" value="2023" step="1">
-                        <button id="playButton" class="play-btn">Play Animation</button>
+                        <div class="year-control">
+                            <span class="year-label">Year: <span id="yearDisplay">2023</span></span>
+                            <button id="playButton">
+                                <svg class="play-icon" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                <span class="button-text">Play</span>
+                            </button>
+                        </div>
+                        <div class="slider-container">
+                            <div class="slider-progress"></div>
+                            <input type="range" id="yearSlider" min="1990" max="2023" value="2023" step="1">
+                            <div class="year-marks">
+                                <span>1990</span>
+                                <span>2023</span>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="map-container">
                         <svg id="BR"></svg>
                         <!-- Tooltip -->

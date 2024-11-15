@@ -30,6 +30,53 @@ document.addEventListener('DOMContentLoaded', function () {
     const color = d3.scaleSequential(d3.interpolateYlOrRd)
         .domain([0, 30]);
 
+    // Create country list legend container
+    const legendContainer = d3.select("body")
+        .append("div")
+        .attr("class", "country-legend")
+        .style("position", "absolute")
+        .style("right", "170px")
+        .style("top", "190px")
+        .style("max-height", "600px")
+        .style("overflow-y", "auto")
+        .style("background-color", "white")
+        .style("padding", "10px")
+        .style("border", "1px solid #ccc")
+        .style("border-radius", "5px")
+        .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
+        .style("font-family", "Arial, sans-serif")
+        .style("font-size", "12px");
+
+    // Add legend title
+    legendContainer.append("div")
+        .attr("class", "legend-title")
+        .style("font-weight", "bold")
+        .style("margin-bottom", "10px")
+        .style("font-size", "14px")
+        .text("Birth Rates by Country");
+
+    // Add search input
+    legendContainer.append("input")
+        .attr("type", "text")
+        .attr("placeholder", "Search countries...")
+        .style("width", "100%")
+        .style("margin-bottom", "10px")
+        .style("padding", "5px")
+        .style("border", "1px solid #ccc")
+        .style("border-radius", "3px")
+        .on("input", function () {
+            const searchTerm = this.value.toLowerCase();
+            d3.selectAll(".country-item")
+                .style("display", function () {
+                    const countryName = d3.select(this).attr("data-country").toLowerCase();
+                    return countryName.includes(searchTerm) ? "block" : "none";
+                });
+        });
+
+    // Create container for country list
+    const countryList = legendContainer.append("div")
+        .attr("class", "country-list");
+
     // Map projection
     const projection = d3.geoMercator()
         .center([115, 10])
@@ -50,8 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     ]).then(([worldData, birthData]) => {
         console.log('Data loaded successfully');
-        console.log('World data features:', worldData?.features?.length);
-        console.log('Birth data rows:', birthData?.length);
 
         // Process birth rate data
         const birthRates = {};
@@ -62,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             birthRates[countryCode][d.Year] = +d['Birth Rate'];
         });
-
 
         // Create zoom behavior
         const zoom = d3.zoom()
@@ -75,7 +119,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create main group for map
         const g = svg.append("g");
-        console.log('Map group created');
+
+        // Function to update country list
+        function updateCountryList(year) {
+            // Clear previous list
+            countryList.selectAll("*").remove();
+
+            // Get all countries with data for the current year, ensuring no duplicates
+            const countriesData = worldData.features
+                .map(d => ({
+                    name: d.properties.name,
+                    rate: birthRates[d.id]?.[year],
+                    id: d.id
+                }))
+                .filter(d => d.rate !== undefined)
+                .sort((a, b) => b.rate - a.rate); // Sort by birth rate descending
+
+            // Remove duplicates by country name or id
+            const uniqueCountriesData = Array.from(new Set(countriesData.map(d => d.name)))
+                .map(name => countriesData.find(d => d.name === name));
+
+            // Create country items
+            const countryItems = countryList.selectAll(".country-item")
+                .data(uniqueCountriesData)  // Use unique countries here
+                .enter()
+                .append("div")
+                .attr("class", "country-item")
+                .attr("data-country", d => d.name)
+                .style("display", "flex")
+                .style("justify-content", "space-between")
+                .style("align-items", "center")
+                .style("padding", "5px 0")
+                .style("border-bottom", "1px solid #eee")
+                .style("cursor", "pointer")
+                .on("mouseover", function (event, d) {
+                    d3.selectAll(".country")
+                        .filter(country => country.id === d.id)
+                        .style("stroke", "#000")
+                        .style("stroke-width", "2px");
+
+                    d3.select(this)
+                        .style("background-color", "#f0f0f0");
+                })
+                .on("mouseout", function (event, d) {
+                    d3.selectAll(".country")
+                        .filter(country => country.id === d.id)
+                        .style("stroke", null)
+                        .style("stroke-width", null);
+
+                    d3.select(this)
+                        .style("background-color", null);
+                })
+                .on("click", function (event, d) {
+                    // Find the corresponding country feature
+                    const countryFeature = worldData.features.find(f => f.id === d.id);
+                    if (countryFeature) {
+                        const bounds = path.bounds(countryFeature);
+                        const dx = bounds[1][0] - bounds[0][0];
+                        const dy = bounds[1][1] - bounds[0][1];
+                        const x = (bounds[0][0] + bounds[1][0]) / 2;
+                        const y = (bounds[0][1] + bounds[1][1]) / 2;
+                        const scale = 0.9 / Math.max(dx / width, dy / height);
+
+                        svg.transition().duration(750).call(
+                            zoom.transform,
+                            d3.zoomIdentity
+                                .translate(width / 2 - x * scale, height / 2 - y * scale)
+                                .scale(scale)
+                        );
+                    }
+                });
+
+            // Add country names
+            countryItems.append("span")
+                .text(d => d.name)
+                .style("font-weight", "500");
+
+            // Add birth rates
+            countryItems.append("span")
+                .text(d => d.rate.toFixed(1))
+                .style("color", d => color(d.rate));
+        }
+
 
         // Update map function with error handling
         function updateMap(year) {
@@ -95,7 +220,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                     .on("mouseover", (event, d) => {
                         const rate = birthRates[d.id]?.[year];
-                        const [centroidX, centroidY] = path.centroid(d); // Calculate the centroid of the country
+
+                        // Calculate the centroid of the country
+                        const [x, y] = path.centroid(d);
+
+                        // Get the current zoom transform
+                        const transform = d3.zoomTransform(svg.node());
+
+                        // Apply the zoom transformation to the coordinates
+                        const tooltipX = transform.applyX(x);
+                        const tooltipY = transform.applyY(y);
+
+                        // Get the SVG's position relative to the viewport
+                        const svgRect = svg.node().getBoundingClientRect();
 
                         tooltip
                             .style("opacity", 1)
@@ -104,28 +241,19 @@ document.addEventListener('DOMContentLoaded', function () {
                                 Birth Rate: ${rate ? rate.toFixed(1) : "No data"} per 1,000 people<br/>
                                 Year: ${year}
                             `)
-                            .style("left", (centroidX + 10) + "px")
-                            .style("top", (centroidY - 10) + "px");
+                            .style("left", `${tooltipX + svgRect.left + 20}px`)
+                            .style("top", `${tooltipY + svgRect.top - 10}px`);
                     })
                     .on("mouseout", () => {
+                        // Remove highlight from list
+                        d3.selectAll(".country-item")
+                            .style("background-color", null);
+
                         tooltip.style("opacity", 0);
-                    })
-
-                    .on("click", (event, d) => {
-                        const rate = birthRates[d.id]?.[year];
-                        // Zoom to the clicked country
-                        const centroid = path.centroid(d);
-                        const bounds = path.bounds(d); // Get the bounding box of the country
-
-                        const dx = bounds[1][0] - bounds[0][0]; // Calculate width of the bounding box
-                        const dy = bounds[1][1] - bounds[0][1]; // Calculate height of the bounding box
-                        const x = (bounds[0][0] + bounds[1][0]) / 2; // Center the bounding box horizontally
-                        const y = (bounds[0][1] + bounds[1][1]) / 2; // Center the bounding box vertically
-                        const scale = 0.9 / Math.max(dx / width, dy / height); // Adjust the zoom level based on the size of the country
-
-                        // Apply the zoom effect using D3's zoom behavior
-                        svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity.translate(width / 2 - x * scale, height / 2 - y * scale).scale(scale));
                     });
+
+                // Update country list
+                updateCountryList(year);
 
                 console.log('Map updated successfully');
             } catch (error) {
@@ -135,7 +263,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Initialize map
         updateMap(2023);
-        console.log('Initial map rendered');
 
         // Event listeners
         if (yearSlider) {
@@ -143,42 +270,75 @@ document.addEventListener('DOMContentLoaded', function () {
                 const selectedYear = parseInt(event.target.value);
                 if (yearDisplay) yearDisplay.textContent = selectedYear;
                 updateMap(selectedYear);
-
-                // Update slider appearance dynamically
                 updateSliderAppearance(selectedYear);
             });
         }
+        // Year control functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const yearSlider = document.getElementById('yearSlider');
+            const yearDisplay = document.getElementById('yearDisplay');
+            const playButton = document.getElementById('playButton');
+            const buttonText = playButton.querySelector('.button-text');
+            const playIcon = playButton.querySelector('.play-icon');
+            const sliderProgress = document.querySelector('.slider-progress');
 
-        // Function to update slider appearance based on the current year
-        function updateSliderAppearance(year) {
-            // For example, change the color of the thumb based on the selected year
-            const thumb = yearSlider.querySelector('::-webkit-slider-thumb');
+            let isPlaying = false;
+            let animationInterval;
 
-            if (year <= 2000) {
-                yearSlider.style.setProperty('--thumb-color', '#1E2A5E'); // Blue color for early years
-            } else if (year <= 2010) {
-                yearSlider.style.setProperty('--thumb-color', '#FF6F61'); // Red color for medium years
-            } else {
-                yearSlider.style.setProperty('--thumb-color', '#4CAF50'); // Green color for recent years
+            // Update slider progress bar
+            function updateSliderProgress() {
+                const percent = ((yearSlider.value - yearSlider.min) / (yearSlider.max - yearSlider.min)) * 100;
+                sliderProgress.style.width = `${percent}%`;
             }
-        }
 
-        // CSS in JS for dynamic styling (set thumb color dynamically)
-        const sliderStyles = `
-    #yearSlider::-webkit-slider-thumb {
-        background: var(--thumb-color, #1E2A5E); /* Default to blue if no custom color set */
-    }
-    #yearSlider::-moz-range-thumb {
-        background: var(--thumb-color, #1E2A5E); /* Default to blue if no custom color set */
-    }
-`;
+            // Update the map and progress when slider changes
+            yearSlider.addEventListener('input', function () {
+                const selectedYear = parseInt(this.value);
+                yearDisplay.textContent = selectedYear;
+                updateSliderProgress();
+                updateMap(selectedYear); // Assuming updateMap is your existing map update function
+            });
 
-        // Inject CSS styles dynamically into the document
-        const styleSheet = document.createElement('style');
-        styleSheet.type = 'text/css';
-        styleSheet.innerText = sliderStyles;
-        document.head.appendChild(styleSheet);
+            // Toggle play/pause
+            playButton.addEventListener('click', function () {
+                isPlaying = !isPlaying;
 
+                if (isPlaying) {
+                    buttonText.textContent = 'Pause';
+                    playIcon.innerHTML = '<path d="M6 4h4v16H6zm8 0h4v16h-4z"/>'; // Pause icon
+
+                    animationInterval = setInterval(() => {
+                        let currentYear = parseInt(yearSlider.value);
+                        currentYear = currentYear >= 2023 ? 1990 : currentYear + 1;
+                        yearSlider.value = currentYear;
+                        yearDisplay.textContent = currentYear;
+                        updateSliderProgress();
+                        updateMap(currentYear);
+                    }, 200);
+                } else {
+                    buttonText.textContent = 'Play';
+                    playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>'; // Play icon
+                    clearInterval(animationInterval);
+                }
+            });
+
+            // Initialize progress bar
+            updateSliderProgress();
+
+            // Pause animation when user interacts with slider
+            yearSlider.addEventListener('mousedown', function () {
+                if (isPlaying) {
+                    playButton.click(); // Stop the animation
+                }
+            });
+
+            // Add touch support for mobile devices
+            yearSlider.addEventListener('touchstart', function () {
+                if (isPlaying) {
+                    playButton.click(); // Stop the animation
+                }
+            });
+        });
         // Animation controls
         let isPlaying = false;
         let animationInterval;

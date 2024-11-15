@@ -19,7 +19,8 @@
 }
 
 .BRtooltip {
-    position: absolute;
+    position: fixed;
+    /* Change from absolute to fixed */
     background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
@@ -31,7 +32,6 @@
     z-index: 1000;
     transition: opacity 0.2s ease;
     max-width: 200px;
-    /* Limit the width of the tooltip for readability */
     white-space: nowrap;
 }
 
@@ -103,81 +103,130 @@ body {
     padding: 1.5rem;
 }
 
-/* Controls */
+svg {
+    display: block;
+    width: 1100px;
+}
+
+
+/* Year Control Styles */
 .controls {
+    max-width: 800px;
+    margin-left: 170px;
+    padding: 20px;
+    background: white;
+
+}
+
+.year-control {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
 }
 
-
-/* Styling for the label */
 .year-label {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #1E2A5E;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+}
+
+#yearSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    outline: none;
+    transition: background 0.2s;
+}
+
+#yearSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #2563eb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#yearSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #2563eb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: none;
+}
+
+#yearSlider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+#yearSlider::-moz-range-thumb:hover {
+    transform: scale(1.1);
+}
+
+.slider-progress {
+    position: absolute;
+    height: 6px;
+    background: #2563eb;
+    border-radius: 3px;
+    top: 17px;
+    left: 0;
+    pointer-events: none;
+}
+
+#playButton {
     display: flex;
     align-items: center;
-    transition: color 0.3s ease;
-}
-
-
-/* Styling for the year display */
-#yearDisplay {
-    margin-left: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #FF6F61;
-    /* Eye-catching color */
-    transition: transform 0.3s ease;
-}
-
-
-
-/* Styling for the slider */
-#yearSlider {
-    width: 100%;
-    height: 8px;
-    background: #ddd;
-    border-radius: 10px;
-    outline: none;
-    transition: background 0.3s ease;
-}
-
-#yearSlider:hover {
-    background: #1E2A5E;
-    /* Change background on hover */
-}
-
-#yearSlider:focus {
-    background: #FF6F61;
-    /* Focus effect */
-}
-
-.play-btn {
-    background-color: #3498db;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #2563eb;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+    transition: background-color 0.2s;
 }
 
-.play-btn:hover {
-    background-color: #2980b9;
+#playButton:hover {
+    background: #1d4ed8;
 }
 
-/* Map Container */
-.map-container {
-    position: relative;
+#playButton:active {
+    transform: translateY(1px);
+}
+
+.play-icon,
+.pause-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* Year marks */
+.year-marks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 8px;
+    color: #666;
+    font-size: 0.9rem;
 }
 
 #map {
-    width: 100%;
+    width: 500px;
     height: 600px;
     margin-bottom: 1.5rem;
 }
