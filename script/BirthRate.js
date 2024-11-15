@@ -19,7 +19,7 @@ const path = d3.geoPath().projection(projection);
 // Load world map data and birth rate data
 Promise.all([
     d3.json("../data/asia.geojson"),
-    d3.csv("../data/birthrate.csv")
+    d3.csv("../data/BirthRate.csv")
 ]).then(([worldData, birthData]) => {
     const birthRates = {};
     birthData.forEach(d => {
