@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .attr("class", "country-legend")
         .style("position", "absolute")
         .style("right", "170px")
-        .style("top", "190px")
+        .style("top", "500px")
         .style("max-height", "600px")
         .style("overflow-y", "auto")
         .style("background-color", "white")
