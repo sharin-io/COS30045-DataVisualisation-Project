@@ -271,11 +271,11 @@ class RadialChart {
   createLegend() {
     const legendDiv = document.getElementById('legend');
     const ranges = [
-      { min: 78, max: 86, label: "Above 78 years", color: "#2C70A2" },
-      { min: 74, max: 77, label: "74-77 years", color: "#4A90E2" },
-      { min: 67, max: 70, label: "67-70 years", color: "#A2C8FF" },
-      { min: 61, max: 63, label: "61-63 years", color: "#A2C8FF" },
-      { min: 55, max: 60, label: "Under 60 years", color: "#A2C8FF" }
+      { min: 78, max: 85, label: "Above 78 years", color: this.getColor(78) },
+      { min: 74, max: 77, label: "74-77 years", color: this.getColor(75) },
+      { min: 70, max: 73, label: "70-73 years", color: this.getColor(71) },
+      { min: 65, max: 69, label: "65-69 years", color: this.getColor(67) },
+      { min: 60, max: 64, label: "Under 60 years", color: this.getColor(60) }
     ];
 
     // Set styles for the legend container
@@ -289,7 +289,6 @@ class RadialChart {
     legendDiv.style.alignItems = 'flex-start';
     legendDiv.style.marginTop = '20px';
 
-
     // Iterate over the ranges and create the legend items
     ranges.forEach(range => {
       const div = document.createElement('div');
@@ -298,7 +297,7 @@ class RadialChart {
       div.style.marginBottom = '5px';
 
       const colorBox = document.createElement('span');
-      colorBox.className = 'legend-color';  // Assign a class to the color box
+      colorBox.className = 'legend-color';
       colorBox.style.width = '20px';
       colorBox.style.height = '20px';
       colorBox.style.borderRadius = '4px';

@@ -169,7 +169,7 @@ svg.append("text")
     .attr("text-anchor", "middle")
     .attr("transform", "rotate(-90)")
     .attr("x", -height / 2)
-    .attr("y", -margin.left + 100)
+    .attr("y", -margin.left + 20)
     .text("Life Expectancy (years)");
 
 // Create line generator
