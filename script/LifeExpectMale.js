@@ -154,12 +154,12 @@ const data = [
 
 
 class RadialChart {
-  constructor(containerId, data, width = 600, height = 600) {
+  constructor(containerId, data, width = 700, height = 600) {
     this.svg = document.getElementById(containerId);
     this.data = data;
     this.width = width;
     this.height = height;
-    this.centerX = width / 2;
+    this.centerX = 500;
     this.centerY = height / 2;
     this.innerRadius = 120;
     this.outerRadius = Math.min(width, height) / 2 - 60;
