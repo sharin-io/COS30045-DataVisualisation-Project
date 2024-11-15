@@ -1,6 +1,6 @@
 // Data structure
 const data = {
-  name: "ASEAN",
+  name: "",
   children: [
     {
       name: "Large Population",
@@ -18,7 +18,7 @@ const data = {
       ]
     },
     {
-      name: "Developing",
+      name: "",
       children: [
         { name: "Malaysia", value: 35126295, growth: 1.24 },
         { name: "Cambodia", value: 17423881, growth: 1.41 }
@@ -150,7 +150,7 @@ function initializeVisualization() {
           // For smaller circles with multiple words, show only on hover
           node.text('')
             .append('tspan')
-            .text('...');
+            .text('');
         } else {
           // For larger circles, wrap text
           let tspan = node.text('').append('tspan')
