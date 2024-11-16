@@ -35,14 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
         .append("div")
         .attr("class", "country-legend")
         .style("position", "absolute")
-        .style("overflow-y", "auto")
-        .style("background-color", "white")
-        .style("padding", "10px")
-        .style("border", "1px solid #ccc")
-        .style("border-radius", "5px")
-        .style("box-shadow", "0 2px 4px rgba(0,0,0,0.1)")
-        .style("font-family", "Arial, sans-serif")
-        .style("font-size", "12px");
+        .style("top", "500px")
+        .style("left", "1100px")
 
     // Add legend title
     legendContainer.append("div")

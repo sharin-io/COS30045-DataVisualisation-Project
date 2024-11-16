@@ -232,10 +232,8 @@ svg {
 }
 
 .country-legend {
-    position: absolute;
     top: 500px;
     left: 1050px;
-    /* Define width for better control */
     overflow-y: auto;
     background-color: white;
     padding: 10px;
