@@ -74,7 +74,17 @@ body {
 }
 
 
-
+#LEMLegend {
+    position: relative;
+    display: inline-block;
+    vertical-align: text-bottom;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    bottom: 400px;
+    left: 100px;
+}
 
 .LETooltip {
     position: absolute;
