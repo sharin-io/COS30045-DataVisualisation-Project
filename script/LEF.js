@@ -122,8 +122,8 @@ const data = {
     ]
 };
 
-const margin = { top: 50, right: 130, bottom: 50, left: 130 }; // Increase right margin
-const width = 1300 - margin.left - margin.right;
+const margin = { top: 50, right: 130, bottom: 50, left: 200 }; // Increase right margin
+const width = 1000 - margin.left - margin.right;
 const height = 700 - margin.top - margin.bottom;
 
 // Create SVG
@@ -167,7 +167,7 @@ svg.append("text")
     .attr("text-anchor", "middle")
     .attr("transform", "rotate(-90)")
     .attr("x", -height / 2)
-    .attr("y", -margin.left + 60)
+    .attr("y", -margin.left + 150)
     .text("Life Expectancy (years)");
 
 // Create line generator
