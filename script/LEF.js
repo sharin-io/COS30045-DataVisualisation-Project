@@ -122,9 +122,14 @@ const data = {
     ]
 };
 
-const margin = { top: 50, right: 130, bottom: 50, left: 200 }; // Increase right margin
-const width = 1000 - margin.left - margin.right;
-const height = 700 - margin.top - margin.bottom;
+// Select the container dimensions
+const container = d3.select("#LEF-container");
+const containerWidth = container.node().getBoundingClientRect().width;
+const containerHeight = 700; // Set a height for consistency
+
+const margin = { top: 50, right: 200, bottom: 50, left: 200 };
+const width = containerWidth - margin.left - margin.right;
+const height = containerHeight - margin.top - margin.bottom;
 
 // Create SVG
 const svg = d3.select("#LEF")
@@ -132,8 +137,7 @@ const svg = d3.select("#LEF")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`)
-
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 // Set up scales
 const x = d3.scaleLinear()
     .domain([2013, 2022])

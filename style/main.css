@@ -19,6 +19,12 @@
     /* Make sure cards grow to fill available space */
 }
 
+/* CSS for container */
+#LEF-container {
+    width: 1300px;
+    padding: 10px;
+}
+
 .visualization-card {
     background: white;
     border-radius: 8px;

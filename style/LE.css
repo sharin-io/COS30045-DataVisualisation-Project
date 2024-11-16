@@ -17,6 +17,26 @@ body {
     padding: 0 1rem;
 }
 
+/* CSS for container */
+#LEF-container {
+    width: 1300px;
+    padding: 10px;
+}
+
+/* Ensure SVG does not overflow */
+#LEF svg {
+    display: block;
+    /* Prevent scrollbars */
+    overflow: visible;
+}
+
+/* Adjust text overflow */
+#LEF-container text.axis-label {
+    font-size: 14px;
+    fill: #333;
+    text-anchor: middle;
+}
+
 
 /* Alert Styles */
 .alert {
