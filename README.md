@@ -1,6 +1,6 @@
 # ASEAN Health Statistics Visualization (COS30045)
 
-[![GitHub license](https://img.shields.io/github/license/sharin-io/Data-Visualization-Project)](https://github.com/sharin-io/Data-Visualization-Project/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/sharin-io/Data-Visualization-Project)](https://github.com/sharin-io/Data-Visualization-Project/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/sharin-io/Data-Visualization-Project)](https://github.com/sharin-io/Data-Visualization-Project/issues)
 ![Project Status](https://img.shields.io/badge/Status-In%20Development-yellow)
 
