@@ -2,7 +2,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/sharin-io/Data-Visualization-Project)](https://github.com/sharin-io/COS30045-DataVisualisation-Project/blob/main/LICENSE) 
 [![GitHub issues](https://img.shields.io/github/issues/sharin-io/Data-Visualization-Project)](https://github.com/sharin-io/Data-Visualization-Project/issues)
-![Project Status](https://img.shields.io/badge/Status-In%20Development-green)
+![Project Status](https://img.shields.io/badge/Status-%20Compeleted-dark)
 
 ## 🌟 About The Project
 
